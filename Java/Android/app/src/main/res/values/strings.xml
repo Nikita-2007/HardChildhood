@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SpaceZombie</string>
+    <string name="strText">Камень-ножницы-бумага</string>
+    <string name="btn2">Назад</string>
+    <string name="btn1">Играть</string>
+    <string name="ya">Выберите Камень, Ножницы или бумага</string>
+    <string name="x_mif">Сайт X-mif</string>
+    <string name="textKNB">Начните игру</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="ButtonA">Авторы</string>
+</resources>
