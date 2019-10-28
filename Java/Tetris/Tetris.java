@@ -6,17 +6,29 @@
  */
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Tetris extends JPanel {
 	
-	//Переменные
-	protected static int block = 40, x = 10;
+
+	/*Переменные
+	 *  |
+	 *  |
+	 *  🡻
+	 */
+	protected static int block = 40, x = 0, y = 0;
 	
 	public static void main(String[] args) {
 		
-		//Окно прилажения
+	/*Окно прилажения
+	 *  |
+	 *  |
+	 *  🡻
+	 */
 		JFrame jFrame = new JFrame("Tetris");
 		jFrame.setDefaultLookAndFeelDecorated(true);
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,11 +39,26 @@ public class Tetris extends JPanel {
 		Tetris tetris = new Tetris();
 		jFrame.add(tetris);
 		
+	/*Упровление
+	 *  |
+	 *  |
+	 *  🡻
+	 */
+	 jFrame.addKeyListener(new KeyAdapter() {
+		public void keyPressed(KeyEvent event) {
+			switch(event.getKeyCode()) {
+				case 37: x--; break; //Влево (🡸)
+				case 38: y--; break; //Вниз  (🡻)
+				case 39: x++; break; //Вправо(🡺)
+				case 40: y++; break; //Вверх (🡹)
+			}
+		}
+	 });
 		while (true) {
 			tetris.game();
 			tetris.repaint();
 			try {
-				Thread.sleep(5);
+				Thread.sleep(500);
 			} catch (Exception e) {}
 		}
 	}
@@ -42,15 +69,20 @@ public class Tetris extends JPanel {
 	 *  🡻
 	 */
 	private void game() {	
-		x++;
+		y++;
 	}
 	
-	//Графика
+	/*Графика
+	 *  |
+	 *  |
+	 *  🡻
+	 */
 	public void paint(Graphics ctx) {
 		super.paint(ctx);
 		setBackground(Color.black);
 		
 		ctx.setColor(Color.green);
-		ctx.fillRect(50, x, 50, 50);
+		ctx.fillRect(x*block, y*block, 25, 75);
+		ctx.fillRect(x*block, y*block+50, 50, 25);
 	}
 }
