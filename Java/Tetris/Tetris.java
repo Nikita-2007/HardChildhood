@@ -82,7 +82,9 @@ public class Tetris extends JPanel {
 		setBackground(Color.black);
 		
 		ctx.setColor(Color.green);
-		ctx.fillRect(x*block, y*block, 25, 75);
-		ctx.fillRect(x*block, y*block+50, 50, 25);
+		ctx.fillRect(x*block, y*block+25, 25, 25);
+		ctx.fillRect(x*block, y*block+50, 25, 25);
+		ctx.fillRect(x*block, y*block+75, 25, 25);
+		ctx.fillRect(x*block+25, y*block+75, 25, 25);
 	}
 }
