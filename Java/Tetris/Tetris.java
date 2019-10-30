@@ -21,6 +21,15 @@ public class Tetris extends JPanel {
 	 *  🡻
 	 */
 	protected static int block = 40, x = 0, y = 0;
+	public int form[][][] = {
+		{{0, 2}, {1, 2}, {2, 2}, {3, 2}, {  0, 255, 255}}, //I
+		{{1, 2}, {2, 2}, {2, 1}, {2, 0}, {  0,   0, 255}}, //J
+		{{1, 2}, {2, 2}, {1, 1}, {1, 0}, {255, 165,   0}}, //L
+		{{1, 2}, {2, 2}, {1, 1}, {2, 1}, {255, 255,   0}}, //O
+		{{0, 2}, {1, 2}, {1, 1}, {2, 1}, {  0, 255,   0}}, //S
+		{{1, 2}, {0, 1}, {1, 1}, {2, 1}, {255,   0, 255}}, //T
+		{{1, 2}, {2, 2}, {0, 1}, {1, 1}, {255,   0,   0}}  //Z
+	};
 	
 	public static void main(String[] args) {
 		
@@ -70,6 +79,7 @@ public class Tetris extends JPanel {
 	 */
 	private void game() {	
 		y++;
+
 	}
 	
 	/*Графика
@@ -81,10 +91,10 @@ public class Tetris extends JPanel {
 		super.paint(ctx);
 		setBackground(Color.black);
 		
-		ctx.setColor(Color.green);
-		ctx.fillRect(x*block, y*block+25, 25, 25);
-		ctx.fillRect(x*block, y*block+50, 25, 25);
-		ctx.fillRect(x*block, y*block+75, 25, 25);
-		ctx.fillRect(x*block+25, y*block+75, 25, 25);
+		for(int i = 0; i < 4; i++) {
+			int r = 0; // 🡸-- Удалить
+			ctx.setColor(new Color(form[r][4][0], form[r][4][1], form[r][4][2]));
+			ctx.fillRect(block*form[r][i][0]+x*block, block*form[r][i][1]+y*block, block, block);
+		}
 	}
 }
