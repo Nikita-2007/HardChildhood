@@ -11,6 +11,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.util.Random;
 
 public class Tetris extends JPanel {
 	
@@ -20,7 +21,7 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
-	protected static int block = 40, x = 0, y = 0;
+	protected static int block = 40, x = 3, y = -3, randForm;
 	public int form[][][] = {
 		{{0, 2}, {1, 2}, {2, 2}, {3, 2}, {  0, 255, 255}}, //I
 		{{1, 2}, {2, 2}, {2, 1}, {2, 0}, {  0,   0, 255}}, //J
@@ -30,6 +31,7 @@ public class Tetris extends JPanel {
 		{{1, 2}, {0, 1}, {1, 1}, {2, 1}, {255,   0, 255}}, //T
 		{{1, 2}, {2, 2}, {0, 1}, {1, 1}, {255,   0,   0}}  //Z
 	};
+	Random random = new Random();
 	
 	public static void main(String[] args) {
 		
@@ -41,7 +43,7 @@ public class Tetris extends JPanel {
 		JFrame jFrame = new JFrame("Tetris");
 		jFrame.setDefaultLookAndFeelDecorated(true);
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jFrame.setSize(block*10, block*20);
+		jFrame.setSize(block*10+17, block*21);
 		jFrame.setResizable(false);
 		jFrame.setLocationRelativeTo(null);
 		jFrame.setVisible(true);
@@ -79,7 +81,13 @@ public class Tetris extends JPanel {
 	 */
 	private void game() {	
 		y++;
-
+		if (y == 20) random();
+	}
+	
+	private void random() {
+		randForm = random.nextInt(7);
+		y = -3;
+		x = 3;
 	}
 	
 	/*Графика
@@ -87,14 +95,16 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
+
 	public void paint(Graphics ctx) {
 		super.paint(ctx);
 		setBackground(Color.black);
-		
 		for(int i = 0; i < 4; i++) {
-			int r = 0; // 🡸-- Удалить
-			ctx.setColor(new Color(form[r][4][0], form[r][4][1], form[r][4][2]));
-			ctx.fillRect(block*form[r][i][0]+x*block, block*form[r][i][1]+y*block, block, block);
+			ctx.setColor(new Color(form[randForm][4][0], form[randForm][4][1], form[randForm][4][2]));
+			ctx.fillRect(block*form[randForm][i][0]+x*block, block*form[randForm][i][1]+y*block, block, block);
 		}
+		ctx.setColor(Color.gray);
+		for(int i = 0; i < 10; i++) ctx.drawLine(block*i,0 ,block*i , block*20);
+		for(int i = 0; i < 20; i++) ctx.drawLine(0, block*i, block*10, block*i);
 	}
 }
