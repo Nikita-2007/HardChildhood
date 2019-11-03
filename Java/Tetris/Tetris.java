@@ -61,7 +61,7 @@ public class Tetris extends JPanel {
 		public void keyPressed(KeyEvent event) {
 			switch(event.getKeyCode()) {
 				case 37: x--; break; //Влево (🡸)
-				case 38: y--; break; //Вниз  (🡻)
+				case 38: tetris.rotate(); break; //Поворот)
 				case 39: x++; break; //Вправо(🡺)
 				case 40: y++; break; //Вверх (🡹)
 			}
@@ -82,8 +82,10 @@ public class Tetris extends JPanel {
 	 *  🡻
 	 */
 	private void game() {	
-		y++;
-		if (y == 20) random();
+		if (y < 17) y++;
+		//else {
+		//	ground[form[randForm][i][0]][][] = form[randForm][4][];
+		//}
 	}
 	
 	private void random() {
@@ -92,12 +94,21 @@ public class Tetris extends JPanel {
 		x = 3;
 	}
 	
+	//Поворот
+	private void rotate() {
+		int temp;
+		for (int i = 0; i < 4; i++){
+			temp = form[randForm][i][0];
+			form[randForm][i][0] = -form[randForm][i][1]+3;
+			form[randForm][i][1] = temp;
+		}
+	}
+	
 	/*Графика
 	 *  |
 	 *  |
 	 *  🡻
 	 */
-
 	public void paint(Graphics ctx) {
 		super.paint(ctx);
 		
