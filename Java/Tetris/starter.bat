@@ -1,7 +1,7 @@
 @echo off
 chcp 1251 >nul
 title Kompilator :)
-mode con cols=32 lines=16
+mode con cols=64 lines=32
 color 0a
 
 echo %TIME% - compilation
@@ -10,4 +10,4 @@ echo %TIME% - compilation
 echo %TIME% - start
 "C:\Program Files\Java\jdk-13.0.1\bin\java.exe" Tetris
 
-::pause > nul
+pause > nul
