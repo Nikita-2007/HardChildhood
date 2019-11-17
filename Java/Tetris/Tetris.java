@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.util.Random;
 
+
 public class Tetris extends JPanel {
 	
 
@@ -61,10 +62,10 @@ public class Tetris extends JPanel {
 		public void keyPressed(KeyEvent event) {
 			tetris.repaint();
 			switch(event.getKeyCode()) {
-				case 37: x--; break; //Влево (🡸)
+				case 37: tetris.move(-1); break; //Влево (🡸)
 				case 38: tetris.rotate(); break; //Поворот)
-				case 39: x++; break; //Вправо(🡺)
-				case 40: speed = 40; break; //Вверх (🡹)
+				case 39: tetris.move(1); break; //Вправо(🡺)
+				case 40: speed = 40; break; //Вниз (🡻)
 			}
 		}
 	 });
@@ -96,6 +97,10 @@ public class Tetris extends JPanel {
 		}
 	}
 	
+	//Граница по оси x
+	private void move(int move) {
+		x = x+move;
+	}
 	
 	private void random() {
 		speed = 400;
@@ -119,9 +124,7 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
-	public void paint(Graphics ctx) {
-		super.paint(ctx);
-		
+	public void paint(Graphics ctx) {		
 		//Дно
 		for(int i = 0; i < 20; i++){
 			for(int j = 0; j < 10; j++) {
@@ -146,4 +149,6 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 *  .
-	 */ 
+*/ 
+	
+	 
