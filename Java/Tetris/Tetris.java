@@ -46,7 +46,7 @@ public class Tetris extends JPanel {
 		JFrame jFrame = new JFrame("Tetris");
 		jFrame.setDefaultLookAndFeelDecorated(true);
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jFrame.setSize(block*10+17, block*21);
+		jFrame.setSize(block*15+17, block*21);
 		jFrame.setResizable(false);
 		jFrame.setLocationRelativeTo(null);
 		jFrame.setVisible(true);
@@ -97,9 +97,13 @@ public class Tetris extends JPanel {
 		}
 	}
 	
-	//Граница по оси x
+	//Граница x
 	private void move(int move) {
-		x = x+move;
+		test = 0;
+		for (int i = 0; i < 4; i++) {
+				if (form[randForm][i][0]+x+move < 10 && form[randForm][i][0]+x+move >= 0) test++;
+			}
+			if (test == 4) x = x+move; 
 	}
 	
 	private void random() {
@@ -124,7 +128,21 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
-	public void paint(Graphics ctx) {		
+	 
+	public void paint(Graphics ctx) {	
+	//Фон с краю
+	ctx.setColor(Color.black);
+	ctx.fillRect(block*10, 0, block*5 , block*20);
+	
+		//обводка Фона с краю
+	ctx.setColor(Color.red);
+	ctx.drawRect(block*10+19, block*5-1, block*4+1 ,block*4+1);
+	//фигрка с краю
+	for(int i = 0; i < 4; i++) {
+			ctx.setColor(new Color(form[randForm][4][0]));
+			ctx.fillRect(block*form[randForm][i][0]+10*block+20, block*form[randForm][i][1]+5*block, block-1, block-1);
+		}
+		
 		//Дно
 		for(int i = 0; i < 20; i++){
 			for(int j = 0; j < 10; j++) {
@@ -140,8 +158,8 @@ public class Tetris extends JPanel {
 		
 		//сетка
 		ctx.setColor(Color.gray);
-		for(int i = 0; i < 10; i++) ctx.drawLine(block*i,0 ,block*i , block*20);
-		for(int i = 0; i < 20; i++) ctx.drawLine(0, block*i, block*10, block*i);
+		for(int i = 0; i <= 10; i++) ctx.drawLine(block*i,0 ,block*i , block*20);
+		for(int i = 0; i <= 20; i++) ctx.drawLine(0, block*i, block*10, block*i);
 	}
 }
 	/*Твоя самооценка
@@ -150,5 +168,3 @@ public class Tetris extends JPanel {
 	 *  🡻
 	 *  .
 */ 
-	
-	 
