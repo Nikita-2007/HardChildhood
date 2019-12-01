@@ -36,6 +36,7 @@ public class Tetris extends JPanel {
 		{{1, 2}, {2, 2}, {0, 1}, {1, 1}, {0xFF0000}}  //Z 
 	};
 	Random random = new Random();
+	private static Color colorBlock;	
 	
 	public static void main(String[] args) {
 		
@@ -54,9 +55,6 @@ public class Tetris extends JPanel {
 		Tetris tetris = new Tetris();
 		jFrame.add(tetris);
 		tetris.random();
-		tetris.random();
-		
-		private static Color colorBlock;
 		
 	/*Упровление
 	 *  |
