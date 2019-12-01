@@ -23,7 +23,7 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
-	protected static int speed = 400, block = 40, x = 3, y = -3, randForm, test, look;
+	protected static int speed = 400, block = 40, x = 3, y = -3, color, test, look;
 	private int form[][] = new int[4][2];
 	public int ground[][][] = new int [20][10][1];
 	public int forms[][][] = {
@@ -94,7 +94,7 @@ public class Tetris extends JPanel {
 		if (test == 4) y++; 
 		else {
 			for (int i = 0; i < 4; i++) {
-				ground[form[i][1]+y][form[i][0]+x][0] = form[4][0];
+				ground[form[i][1]+y][form[i][0]+x][0] = color;
 			}
 			random();
 		}
@@ -111,7 +111,8 @@ public class Tetris extends JPanel {
 	
 	private void random() {
 		speed = 400;
-		colorBlock = new Color(forms[look][4][0]);
+		color = forms[look][4][0];
+		colorBlock = new Color(color);
 		for (int i = 0; i < 4; i++) {
 			form[i][0] = forms[look][i][0];
 			form[i][1] = forms[look][i][1];
