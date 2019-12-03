@@ -1,7 +1,7 @@
 @echo off
 chcp 1251 >nul
 title Kompilator :)
-mode con cols=128 lines=128
+mode con cols=32 lines=16
 color 0a
 
 echo %TIME% - compilation
