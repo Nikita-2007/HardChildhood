@@ -14,9 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.util.Random;
 
-
 public class Tetris extends JPanel {
-	
 
 	/*Переменные
 	 *  |
@@ -54,7 +52,7 @@ public class Tetris extends JPanel {
 		jFrame.setVisible(true);
 		Tetris tetris = new Tetris();
 		jFrame.add(tetris);
-		tetris.random();
+		tetris.newBlock();
 		
 	/*Упровление
 	 *  |
@@ -89,14 +87,15 @@ public class Tetris extends JPanel {
 	private void game() {
 	test = 0;
 	for (int i = 0; i < 4; i++) {
-			if (form[i][1]+y+1 < 20) test++;
+			if (form[i][1]+y+1 < 20 && ground[form[i][1]+y+1][form[i][0]+x][0] == 0) test++;
 		}
 		if (test == 4) y++; 
 		else {
 			for (int i = 0; i < 4; i++) {
 				ground[form[i][1]+y][form[i][0]+x][0] = color;
 			}
-			random();
+			clear();
+			newBlock();
 		}
 	}
 	
@@ -109,7 +108,7 @@ public class Tetris extends JPanel {
 			if (test == 4) x = x+move; 
 	}
 	
-	private void random() {
+	private void newBlock() {
 		speed = 400;
 		color = forms[look][4][0];
 		colorBlock = new Color(color);
@@ -118,7 +117,7 @@ public class Tetris extends JPanel {
 			form[i][1] = forms[look][i][1];
 		}
 		look = random.nextInt(7);
-		y = -3;
+		y = -1;
 		x = 3;
 	}
 	
@@ -131,6 +130,19 @@ public class Tetris extends JPanel {
 			form[i][1] = temp;
 		}
 	}
+	
+	//Очистка
+	private void clear() {
+		int temp;		
+		for (int i = 0; i < 20; i++) {
+			temp = 0;
+			for (int j = 0; j < 10; j++)
+				if (ground[i][j][0] > 0) temp++;
+		if (temp >= 10) 
+			for (int j = 0; j < 10; j++)
+				ground[i][j][0] = 0;
+		}
+	}	
 	
 	/*Графика
 	 *  |
@@ -163,7 +175,6 @@ public class Tetris extends JPanel {
 		for(int i = 0; i < 4; i++) {
 			ctx.setColor(colorBlock);
 			ctx.fillRect(block*form[i][0]+x*block, block*form[i][1]+y*block, block, block);
-			
 		}
 		
 		//сетка
@@ -172,9 +183,3 @@ public class Tetris extends JPanel {
 		for(int i = 0; i <= 20; i++) ctx.drawLine(0, block*i, block*10, block*i);
 	}
 }
-	/*Твоя самооценка
-	 *  |
-	 *  |
-	 *  🡻
-	 *  .
-*/ 
