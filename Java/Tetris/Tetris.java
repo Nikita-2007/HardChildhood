@@ -105,7 +105,7 @@ public class Tetris extends JPanel {
 	private void move(int move) {
 		test = 0;
 		for (int i = 0; i < 4; i++) {
-				if (form[i][0]+move < 10 && form[i][0]+move >= 0) test++;
+				if (form[i][0]+move < 10 && form[i][0]+move >= 0 && ground[form[i][1]][form[i][0]+move][0] == 0) test++;
 			}
 			if (test == 4)
 				for (int i = 0; i < 4; i++)
