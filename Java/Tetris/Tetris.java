@@ -8,6 +8,8 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Font;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
@@ -36,6 +38,8 @@ public class Tetris extends JPanel {
 	};
 	Random random = new Random();
 	private static Color colorBlock;	
+	private Image img;
+
 	
 	public static void main(String[] args) {
 		
@@ -86,6 +90,7 @@ public class Tetris extends JPanel {
 	 *  🡻
 	 */
 	private void game() {
+	img = new ImageIcon("ImageIcon.png").getImage();
 	test = 0;
 	for (int i = 0; i < 4; i++) {
 			if (form[i][1]+1 < 20 && ground[form[i][1]+1][form[i][0]][0] == 0) test++;
@@ -173,6 +178,10 @@ public class Tetris extends JPanel {
 		ctx.setFont(new Font("Сourier New", Font.BOLD, 18));
 		ctx.setColor(Color.red);
 		ctx.drawString(("Next figure"), 11*block+10, 195);
+		ctx.drawString(("Speed: "+ speed), 10*block+10, 400);
+		ctx.setFont(new Font("Сourier New", Font.BOLD, 16));
+		ctx.setColor(Color.blue);
+		ctx.drawString(("Author: Nikita Sergeevich"), 10*block+10, 120);
 		
 		
 		//Дно
@@ -192,6 +201,7 @@ public class Tetris extends JPanel {
 		//сетка
 		ctx.setColor(Color.gray);
 		for(int i = 0; i <= 10; i++) ctx.drawLine(block*i,0 ,block*i , block*20);
-		for(int i = 0; i <= 20; i++) ctx.drawLine(0, block*i, block*10, block*i);	
+		for(int i = 0; i <= 20; i++) ctx.drawLine(0, block*i, block*10, block*i);
+		ctx.drawImage(img, 10*block, 10, null);
 	}
 }
