@@ -7,6 +7,7 @@
  
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Font;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
@@ -168,6 +169,12 @@ public class Tetris extends JPanel {
 			ctx.fillRect(block*forms[look][i][0]+11*block+20, block*forms[look][i][1]+6*block, block-1, block-1);
 		}
 		
+		//Тексты
+		ctx.setFont(new Font("Сourier New", Font.BOLD, 18));
+		ctx.setColor(Color.red);
+		ctx.drawString(("Next figure"), 11*block+10, 195);
+		
+		
 		//Дно
 		for(int i = 0; i < 20; i++){
 			for(int j = 0; j < 10; j++) {
@@ -175,6 +182,7 @@ public class Tetris extends JPanel {
 				ctx.fillRect(j*block, i*block, block, block);
 			}
 		}
+
 		// фигуры
 		for(int i = 0; i < 4; i++) {
 			ctx.setColor(colorBlock);
@@ -184,6 +192,6 @@ public class Tetris extends JPanel {
 		//сетка
 		ctx.setColor(Color.gray);
 		for(int i = 0; i <= 10; i++) ctx.drawLine(block*i,0 ,block*i , block*20);
-		for(int i = 0; i <= 20; i++) ctx.drawLine(0, block*i, block*10, block*i);
+		for(int i = 0; i <= 20; i++) ctx.drawLine(0, block*i, block*10, block*i);	
 	}
 }
