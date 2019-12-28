@@ -9,10 +9,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Font;
 import java.awt.Image;
-import javax.swing.ImageIcon;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.util.Random;
@@ -24,7 +24,7 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
-	protected static int speed = 400, block = 40, color, test, look;
+	protected static int speed = 400, block = 40, color, test, look, line;
 	private int form[][] = new int[4][2];
 	public int ground[][][] = new int [20][10][1];
 	public int forms[][][] = {
@@ -38,7 +38,8 @@ public class Tetris extends JPanel {
 	};
 	Random random = new Random();
 	private static Color colorBlock;	
-	private Image img;
+	private static Image img = new ImageIcon("ImageIcon.png").getImage();
+	private static Image glass = new ImageIcon("glass.png").getImage();
 
 	
 	public static void main(String[] args) {
@@ -90,7 +91,6 @@ public class Tetris extends JPanel {
 	 *  🡻
 	 */
 	private void game() {
-	img = new ImageIcon("ImageIcon.png").getImage();
 	test = 0;
 	for (int i = 0; i < 4; i++) {
 			if (form[i][1]+1 < 20 && ground[form[i][1]+1][form[i][0]][0] == 0) test++;
@@ -146,11 +146,13 @@ public class Tetris extends JPanel {
 			temp = 0;
 			for (int j = 0; j < 10; j++)
 				if (ground[i][j][0] > 0) temp++;
-		if (temp >= 10) 
-			for (int iClear = i; iClear > 0; iClear--)
-				for (int j = 0; j < 10; j++)
-					if (iClear > 0)
-					ground[iClear][j][0] = ground[iClear-1][j][0];
+			if (temp >= 10) {
+				for (int iClear = i; iClear > 0; iClear--)
+					for (int j = 0; j < 10; j++)
+						if (iClear > 0)
+						ground[iClear][j][0] = ground[iClear-1][j][0];
+					line++;
+			}
 		}
 	}	
 	
@@ -165,13 +167,14 @@ public class Tetris extends JPanel {
 	ctx.setColor(Color.black);
 	ctx.fillRect(block*10, 0, block*5 , block*20);
 	
-		//обводка формы для фигурки с краю
+	//обводка формы для фигурки с краю
 	ctx.setColor(Color.red);
 	ctx.drawRect(block*10+19, block*5-1, block*4+1, block*4+1);
 	//фигрка с краю
 	for(int i = 0; i < 4; i++) {
 			ctx.setColor(new Color(forms[look][4][0]));
 			ctx.fillRect(block*forms[look][i][0]+11*block+20, block*forms[look][i][1]+6*block, block-1, block-1);
+			ctx.drawImage(glass, block*forms[look][i][0]+11*block+20, block*forms[look][i][1]+6*block, null);
 		}
 		
 		//Тексты
@@ -179,9 +182,11 @@ public class Tetris extends JPanel {
 		ctx.setColor(Color.red);
 		ctx.drawString(("Next figure"), 11*block+10, 195);
 		ctx.drawString(("Speed: "+ speed), 10*block+10, 400);
+		ctx.drawString(("Line: "+ line), 10*block+10, 440);
+		ctx.drawString(("lvl: "+ line/10), 10*block+10, 480);
 		ctx.setFont(new Font("Сourier New", Font.BOLD, 16));
 		ctx.setColor(Color.blue);
-		ctx.drawString(("Author: Nikita Sergeevich"), 10*block+10, 120);
+		ctx.drawString(("Author: Nikita Sergeevich"), 10*block+2, 120);
 		
 		
 		//Дно
@@ -196,6 +201,7 @@ public class Tetris extends JPanel {
 		for(int i = 0; i < 4; i++) {
 			ctx.setColor(colorBlock);
 			ctx.fillRect(block*form[i][0], block*form[i][1], block, block);
+			ctx.drawImage(glass, block*form[i][0], block*form[i][1], null);
 		}
 		
 		//сетка
