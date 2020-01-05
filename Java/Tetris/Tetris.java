@@ -24,7 +24,7 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
-	protected static int speed = 400, block = 40, color, test, look, line;
+	protected static int speed = 400, block = 40, color, test, look, line,lvl;
 	private int form[][] = new int[4][2];
 	public int ground[][][] = new int [20][10][1];
 	public int forms[][][] = {
@@ -91,6 +91,7 @@ public class Tetris extends JPanel {
 	 *  🡻
 	 */
 	private void game() {
+	lvl = line/10;
 	test = 0;
 	for (int i = 0; i < 4; i++) {
 			if (form[i][1]+1 < 20 && ground[form[i][1]+1][form[i][0]][0] == 0) test++;
@@ -111,7 +112,8 @@ public class Tetris extends JPanel {
 	private void move(int move) {
 		test = 0;
 		for (int i = 0; i < 4; i++) {
-				if (form[i][0]+move < 10 && form[i][0]+move >= 0 && ground[form[i][1]][form[i][0]+move][0] == 0) test++;
+				if (form[i][0]+move < 10 && form[i][0]+move >= 0 && ground[form[i][1]][form[i][0]+move][0] == 0)
+					test++;
 			}
 			if (test == 4)
 				for (int i = 0; i < 4; i++)
@@ -119,7 +121,7 @@ public class Tetris extends JPanel {
 	}
 	
 	private void newBlock() {
-		speed = 400;
+		speed = 400-lvl*100;
 		color = forms[look][4][0];
 		colorBlock = new Color(color);
 		for (int i = 0; i < 4; i++) {
@@ -131,12 +133,26 @@ public class Tetris extends JPanel {
 	
 	//Поворот
 	private void rotate() {
-		int temp;
+		
+		//Клонировка
+		int tempBlock[][] = new int[4][2];
 		for (int i = 0; i < 4; i++){
-			temp = form[i][0];
-			form[i][0] = -form[i][1]+form[0][1] + form[0][0];
-			form[i][1] = temp - form[0][0] + form[0][1];
+			tempBlock[i][0] = -form[i][1]+form[0][1]+form[0][0];
+			tempBlock[i][1] = form[i][0]-form[0][0]+form[0][1];
 		}
+			
+		//Проверка
+		int temp = 0;
+		for (int i = 0; i < 4; i++)
+			if (tempBlock[i][0] < 10 && tempBlock[i][0] >= 0 && ground[tempBlock[i][1]][tempBlock[i][0]][0] == 0)
+				temp++;
+		
+		//Поворот
+		if (temp >= 4 && color != 0xffff00)
+			for (int i = 0; i < 4; i++){
+				form[i][0] = tempBlock[i][0];
+				form[i][1] = tempBlock[i][1];
+			}
 	}
 	
 	//Очистка
@@ -183,7 +199,7 @@ public class Tetris extends JPanel {
 		ctx.drawString(("Next figure"), 11*block+10, 195);
 		ctx.drawString(("Speed: "+ speed), 10*block+10, 400);
 		ctx.drawString(("Line: "+ line), 10*block+10, 440);
-		ctx.drawString(("lvl: "+ line/10), 10*block+10, 480);
+		ctx.drawString(("lvl: "+ lvl), 10*block+10, 480);
 		ctx.setFont(new Font("Сourier New", Font.BOLD, 16));
 		ctx.setColor(Color.blue);
 		ctx.drawString(("Author: Nikita Sergeevich"), 10*block+2, 120);
