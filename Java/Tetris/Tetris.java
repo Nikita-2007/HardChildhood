@@ -24,7 +24,7 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
-	protected static int speed = 400, block = 40, color, test, look, line,lvl;
+	protected static int speed = 400, block = 40, color, test, look, line, lvl,steep, pause;
 	private int form[][] = new int[4][2];
 	public int ground[][][] = new int [20][10][1];
 	public int forms[][][] = {
@@ -68,11 +68,13 @@ public class Tetris extends JPanel {
 	 jFrame.addKeyListener(new KeyAdapter() {
 		public void keyPressed(KeyEvent event) {
 			tetris.repaint();
+			pause = 1;
 			switch(event.getKeyCode()) {
 				case 37: tetris.move(-1); break; //Влево (🡸)
 				case 38: tetris.rotate(); break; //Поворот)
 				case 39: tetris.move(1); break; //Вправо(🡺)
 				case 40: speed = 40; break; //Вниз (🡻)
+				case 32: pause = 0; break; //Пробел
 			}
 		}
 	 });
@@ -98,15 +100,19 @@ public class Tetris extends JPanel {
 		}
 		if (test == 4)
 			for (int i = 0; i < 4; i++)
-				form[i][1]++;
+				form[i][1]+=1*pause;
 		else {
 			for (int i = 0; i < 4; i++) {
 				ground[form[i][1]][form[i][0]][0] = color;
 			}
 			clear();
 			newBlock();
+			steep++;
 		}
 	}
+	
+	//Пауза
+
 	
 	//Граница x
 	private void move(int move) {
@@ -121,7 +127,7 @@ public class Tetris extends JPanel {
 	}
 	
 	private void newBlock() {
-		speed = 400-lvl*100;
+		if (speed <= 99) speed = 100; else speed = 400-lvl*50;
 		color = forms[look][4][0];
 		colorBlock = new Color(color);
 		for (int i = 0; i < 4; i++) {
@@ -200,6 +206,7 @@ public class Tetris extends JPanel {
 		ctx.drawString(("Speed: "+ speed), 10*block+10, 400);
 		ctx.drawString(("Line: "+ line), 10*block+10, 440);
 		ctx.drawString(("lvl: "+ lvl), 10*block+10, 480);
+		ctx.drawString(("total figures: "+ steep), 10*block+10, 520);
 		ctx.setFont(new Font("Сourier New", Font.BOLD, 16));
 		ctx.setColor(Color.blue);
 		ctx.drawString(("Author: Nikita Sergeevich"), 10*block+2, 120);
