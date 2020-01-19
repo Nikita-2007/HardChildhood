@@ -38,7 +38,7 @@ public class Tetris extends JPanel {
 	};
 	Random random = new Random();
 	private static Color colorBlock;	
-	private static Image img = new ImageIcon("ImageIcon.png").getImage();
+	private static Image img = new ImageIcon("imageIcon.png").getImage();
 	private static Image glass = new ImageIcon("glass.png").getImage();
 
 	
