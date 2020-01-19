@@ -24,7 +24,7 @@ public class Tetris extends JPanel {
 	 *  |
 	 *  🡻
 	 */
-	protected static int speed = 400, block = 40, color, test, look, line, lvl,steep, pause;
+	protected static int speed = 400, block = 40, color, test, look, line, lvl,steep, pause = 1;
 	private int form[][] = new int[4][2];
 	public int ground[][][] = new int [20][10][1];
 	public int forms[][][] = {
@@ -110,9 +110,6 @@ public class Tetris extends JPanel {
 			steep++;
 		}
 	}
-	
-	//Пауза
-
 	
 	//Граница x
 	private void move(int move) {
