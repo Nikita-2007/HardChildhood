@@ -10,20 +10,14 @@ namespace Обучение
             Console.WriteLine(2>3);
             Console.WriteLine();
 
-            bool x = 2 > 3;
-            Console.Write("Сравнение 2>3 - ");
-            Console.WriteLine(x);
-            Console.WriteLine();
-
             bool y = 2 < 3;
-            Console.Write("Сравнение 2<3 - ");
-            Console.WriteLine(y);
-            Console.WriteLine();
+            Console.WriteLine($"Сравнение 2<3 - {y}\n");
+
+            bool x = 2 > 3;
+            Console.WriteLine($"Сравнение 2>3 - {x}\n");
 
             bool z = 2 == 3;
-            Console.Write("Сравнение 2=3 - ");
-            Console.WriteLine(z);
-            Console.WriteLine();
+            Console.WriteLine($"Сравнение 2=3 - {z}\n");
         }
     }
 }
