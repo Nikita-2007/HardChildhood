@@ -7,7 +7,7 @@
     <ProjectGuid>{84531757-59AC-4206-8F20-5B4CC14879A3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>my_osu_</RootNamespace>
-    <AssemblyName>my osu!</AssemblyName>
+    <AssemblyName>1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -93,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Кружок.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cursor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
