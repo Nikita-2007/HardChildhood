@@ -73,9 +73,19 @@ namespace my_osu_ {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Kyrs {
+        internal static System.Drawing.Bitmap cursor {
             get {
-                object obj = ResourceManager.GetObject("Kyrs", resourceCulture);
+                object obj = ResourceManager.GetObject("cursor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Krug {
+            get {
+                object obj = ResourceManager.GetObject("Krug", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
