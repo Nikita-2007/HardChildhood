@@ -121,7 +121,10 @@
   <data name="Bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Фон.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Kyrs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="cursor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\cursor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Krug" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Кружок.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
