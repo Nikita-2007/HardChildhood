@@ -8,3 +8,13 @@ D:\Documents\Programs\C#\my osu!\my osu!\obj\Debug\my_osu_.Resource1.resources
 D:\Documents\Programs\C#\my osu!\my osu!\obj\Debug\my osu!.csproj.GenerateResource.cache
 D:\Documents\Programs\C#\my osu!\my osu!\obj\Debug\my osu!.exe
 D:\Documents\Programs\C#\my osu!\my osu!\obj\Debug\my osu!.pdb
+D:\Documents\Programs\C#\my osu!\bin\Debug\1.exe.config
+D:\Documents\Programs\C#\my osu!\bin\Debug\1.exe
+D:\Documents\Programs\C#\my osu!\bin\Debug\1.pdb
+D:\Documents\Programs\C#\my osu!\obj\Debug\my osu!.csprojAssemblyReference.cache
+D:\Documents\Programs\C#\my osu!\obj\Debug\my_osu_.Form1.resources
+D:\Documents\Programs\C#\my osu!\obj\Debug\my_osu_.Properties.Resources.resources
+D:\Documents\Programs\C#\my osu!\obj\Debug\my_osu_.Resource1.resources
+D:\Documents\Programs\C#\my osu!\obj\Debug\my osu!.csproj.GenerateResource.cache
+D:\Documents\Programs\C#\my osu!\obj\Debug\1.exe
+D:\Documents\Programs\C#\my osu!\obj\Debug\1.pdb
