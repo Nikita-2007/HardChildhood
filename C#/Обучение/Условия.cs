@@ -6,15 +6,38 @@ namespace Обучения2
     {
         public void Консоль2()
         {
-            bool x = 2 < 3;
+            bool a = true & true;  //и
+            bool b = false ^ true; //либо
+            bool x = a | b;        //или
             if (x)
             {
-                Console.WriteLine($"2 Больше 3 {0}\n");
+                Console.WriteLine("Условие верно ");
             }
             else
             {
-                Console.WriteLine($"2 Не Больше 3 {0}\n");
+                Console.WriteLine("Условие неверно ");
             }
+
+            Console.WriteLine($"Сравнение + и + {true & true}\n");
+            Console.WriteLine($"Сравнение + и - {true & false}\n");
+            Console.WriteLine($"Сравнение - и - {false & false}\n");
+
+            Console.WriteLine($"Сравнение + лмбо + {true ^ true}\n");
+            Console.WriteLine($"Сравнение + либо - {true ^ false}\n");
+            Console.WriteLine($"Сравнение - либо - {false ^ false}\n");
+
+            Console.WriteLine($"Сравнение + или + {true | true}\n");
+            Console.WriteLine($"Сравнение + или - {true | false}\n");
+            Console.WriteLine($"Сравнение - или - {false| false}\n");
+
+            int i = 2147400000;
+            bool y= true;
+            do
+            {
+               y = i < 10;
+                Console.WriteLine(i++);
+            }
+            while (y);
         }
     }
 }
