@@ -63,8 +63,7 @@ namespace my_osu_
             a = point;
             point.X = Width/2 + random.Next(-4, 4) * 100;
             point.Y = Height/2 + random.Next(-3, 3) * 100;
-            if (point.X == a.X && point.Y == a.Y) randomTarget();
-        }
+            if (point.X == a.X && point.Y == a.Y) randomTarget();        }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -84,6 +83,8 @@ namespace my_osu_
             soundPlayer.Play();
 
             //Информационная панель
+            score = 1000000/(time * gepatenyza);
+            label1.Text = ("Очки: " + score.ToString());
             label5.Text = ("Таймер: "+ time.ToString());
             label4.Text = ("Точность: " + gepatenyza.ToString());
             label3.Text = ("Нажатий: " + steep.ToString());
