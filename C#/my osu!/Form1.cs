@@ -13,7 +13,7 @@ namespace my_osu_
         private Random random = new Random();
         private Bitmap target = Resource1.cursor;
         private Point point = Point.Empty;
-        private int score, time, steep, gepatenyza;
+        private int score2, score, time, steep, gepatenyza;
         private Pen pen = new Pen(Color.Red, 2);
         private SoundPlayer soundPlayer = new SoundPlayer(Resource1.click);
         private Stopwatch stopwatch = new Stopwatch();
@@ -81,16 +81,18 @@ namespace my_osu_
             time = (int) stopwatch.Elapsed.TotalMilliseconds;
             steep++;
             soundPlayer.Play();
-
+            score2 += score;
             //Информационная панель
-            score = 1000000/(time * gepatenyza);
+            score = 37500/time + 500/gepatenyza;
             label1.Text = ("Очки: " + score.ToString());
-            label5.Text = ("Таймер: "+ time.ToString());
-            label4.Text = ("Точность: " + gepatenyza.ToString());
+            label2.Text = ("Всего очков: " + score2.ToString());
             label3.Text = ("Нажатий: " + steep.ToString());
+            label4.Text = ("Точность: " + gepatenyza.ToString());
+            label5.Text = ("Таймер: "+ time.ToString());
 
             randomTarget();
             stopwatch.Restart();
+            
         }
 
     }
