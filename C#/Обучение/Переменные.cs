@@ -38,6 +38,16 @@ namespace Обучение
             Console.WriteLine($"Чисто в степени  1.2e-5 - {1.2e-3}\n");
             Console.WriteLine($"Юни-код u0420 - {"\u0420"}\n");
             Console.WriteLine($"ASKII - {"\x5A"}\n");
+
+            DateTime mydr = new DateTime(2007, 05, 02);
+            Console.WriteLine($"Мой д/р {mydr}");
+            Console.WriteLine($"День неделид д/р {mydr.DayOfWeek}");
+
+            DateTime today = DateTime.Now;
+            Console.WriteLine($"Сейчас {today}");
+            Console.WriteLine($"День {today.Day}");
+            Console.WriteLine($"День {(today - mydr).Days}");
+
         }
     }
 }
