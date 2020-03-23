@@ -25,6 +25,21 @@ namespace Обучение
             Console.WriteLine($"char (16 бит) {"X"}\n");
             Console.WriteLine($"string (Сылка) {"привет"}\n");
         }
+
+        public enum Неделя {Понедельник, Вторник, Среда, Четверг ,Пятница, Суббота, Воскресенье}
+        public void Структуры()
+        {
+            Неделя день = 0;
+            for (byte i = 0; i < 7;  i++)
+                Console.WriteLine($" День недели {день + i}\n");
+            var toble = (5, 10,25 ,67,777,890,240234226436,120461);
+
+            Console.WriteLine($"{toble}\n");
+
+            (string, int, double) школьник = ("Егор", 2007, 8.113);
+            Console.WriteLine($"{школьник}\n");
+            Console.WriteLine($"{школьник.Item2}\n");
+        }
     }
     
 }
