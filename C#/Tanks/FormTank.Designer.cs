@@ -57,6 +57,7 @@
             this.Name = "FormTank";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tanks";
+            this.Load += new System.EventHandler(this.FormTank_Load);
             this.Click += new System.EventHandler(this.FormTank_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormTank_Paint);
             this.ResumeLayout(false);
