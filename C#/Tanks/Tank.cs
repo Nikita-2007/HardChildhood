@@ -1,32 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tanks
 {
     class Tank
     {
+        int id; // Я тепя по ID вычеслю
+        float vector; // Угол поворота корпуса
+        float vectorTower; // Угол поворота башни
+
         Bitmap bitmap = new Bitmap(Properties.Resources.Танк);
         Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
-        Rectangle tower = new Rectangle(new Point(128, 0), new Size(256, 128));
-        int x = 0;
-        public void DrawTank(Graphics g, Point position)
+        Rectangle tower = new Rectangle(new Point(128, 0), new Size(256, 128));       
+        Point position; //Местоположение Танк
+        Point target; //Метка
+        Random random = new Random();
+
+        //Отрисовка Танка
+        public void DrawTank(Graphics g)
         {
-            x += 2;
-            //туловище
+            position = Position();
+
+            //Корпус
             g.TranslateTransform(position.X, position.Y);
-            g.RotateTransform(x-4);
+            g.RotateTransform(vector);
             g.DrawImage(bitmap, -64, -75, body, GraphicsUnit.Pixel);
             g.ResetTransform();
 
             //Башня
             g.TranslateTransform(position.X, position.Y);
-            g.RotateTransform((x-4)/2);
+            g.RotateTransform(vectorTower);
             g.DrawImage(bitmap, -64, -90, tower, GraphicsUnit.Pixel);
             g.ResetTransform();
         }
+
+        //Позиция танка
+        private Point Position()
+        {
+            position.X = random.Next(1280);
+            position.Y = random.Next(720);
+            return position;
+        }
     }
-}
+}      
