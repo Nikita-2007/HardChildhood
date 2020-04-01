@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tanks
@@ -13,9 +7,7 @@ namespace Tanks
     public partial class FormTank : Form
     {
         Graphics g;
-        Tank tank = new Tank();
-        Random random = new Random();
-        Point position = Point.Empty;
+        ListTank listTank;
 
         public FormTank()
         {
@@ -43,13 +35,12 @@ namespace Tanks
             x++;
             label1.Text = x.ToString();
             g = e.Graphics;
-            //for (byte i = 0; i < 10; i++)
-           //{
-                position.X = random.Next(-0, 0)+500;
-                position.Y = random.Next(-0, 0)+300;
-                tank.DrawTank(g, position);
-            //}
+            listTank.DrawListTank(g);
         }
 
+        private void FormTank_Load(object sender, EventArgs e)
+        {
+            listTank = new ListTank();
+        }
     }
 }
