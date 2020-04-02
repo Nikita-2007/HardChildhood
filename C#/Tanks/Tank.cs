@@ -5,25 +5,24 @@ namespace Tanks
 {
     class Tank
     {
-        int id; // Я тепя по ID вычеслю
+        public int id; // Я тепя по ID вычеслю
         float vector; // Угол поворота корпуса
         float vectorTower; // Угол поворота башни
 
         Bitmap bitmap = new Bitmap(Properties.Resources.Танк);
         Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
-        Rectangle tower = new Rectangle(new Point(128, 0), new Size(256, 128));       
-        Point position; //Местоположение Танк
-        Point target; //Метка
-        Random random = new Random();
-
-        //Отрисовка Танка
-        public void DrawTank(Graphics g)
-        {
-            position = Position();
-
-            //Корпус
-            g.TranslateTransform(position.X, position.Y);
-            g.RotateTransform(vector);
+        Rectangle tower = new Rectangle(new Point(128, 0), new Size(256, 128));
+        public Point position; //Местоположение Танк
+        Point target; //Метка                               
+        Random random = new Random();                       
+                                                            
+        //Отрисовка Танка                                   
+        public void DrawTank(Graphics g)                    
+        {                                                                            
+                                                            
+            //Корпус                                        
+            g.TranslateTransform(position.X, position.Y);   
+            g.RotateTransform(vector);                      
             g.DrawImage(bitmap, -64, -75, body, GraphicsUnit.Pixel);
             g.ResetTransform();
 
@@ -35,7 +34,7 @@ namespace Tanks
         }
 
         //Позиция танка
-        private Point Position()
+        public Point Position()
         {
             position.X = random.Next(1280);
             position.Y = random.Next(720);
