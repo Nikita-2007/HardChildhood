@@ -6,8 +6,9 @@ namespace Tanks
 {
     public partial class FormTank : Form
     {
-        Graphics g;
-        ListTank listTank;
+        public Graphics g;
+        private ListTank listTank;
+        private Point cursor;
 
         //Окно приложения
         public FormTank()
@@ -30,8 +31,8 @@ namespace Tanks
         private void FormTank_Paint(object sender, PaintEventArgs e)
         {
             g = e.Graphics;
-            listTank.DrawListTank(g);
-        }
+            cursor = PointToClient(Cursor.Position);
+            listTank.DrawListTank(g, cursor);        }
 
         //Таймер
         private void timer1_Tick(object sender, EventArgs e)
