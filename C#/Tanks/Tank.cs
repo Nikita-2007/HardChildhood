@@ -6,23 +6,27 @@ namespace Tanks
     class Tank
     {
         public int id; // Я тепя по ID вычеслю
-        float vector; // Угол поворота корпуса
-        float vectorTower; // Угол поворота башни
+        public PointF position; //Местоположение Танк
 
-        Bitmap bitmap = new Bitmap(Properties.Resources.Танк);
-        Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
-        Rectangle tower = new Rectangle(new Point(128, 0), new Size(256, 128));
-        public Point position; //Местоположение Танк
-        Point target; //Метка                               
-        Random random = new Random();                       
-                                                            
-        //Отрисовка Танка                                   
-        public void DrawTank(Graphics g)                    
-        {                                                                            
-                                                            
-            //Корпус                                        
-            g.TranslateTransform(position.X, position.Y);   
-            g.RotateTransform(vector);                      
+        private Bitmap bitmap = new Bitmap(Properties.Resources.Танк);
+        private Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
+        private Rectangle tower = new Rectangle(new Point(128, 0), new Size(256, 128));
+        private float vector; // Угол поворота корпуса
+        private float vectorTower; // Угол поворота башни
+        private float speed = 1; // скорость
+        private Point target; //цель
+ 
+        //Отрисовка Танка
+        public void DrawTank(Graphics g, Point cursor)
+        {
+            target = cursor;
+            Position();
+            Vector();
+            vectorTower = vector;
+
+            //Корпус
+            g.TranslateTransform(position.X, position.Y);
+            g.RotateTransform(vector);
             g.DrawImage(bitmap, -64, -75, body, GraphicsUnit.Pixel);
             g.ResetTransform();
 
@@ -33,12 +37,22 @@ namespace Tanks
             g.ResetTransform();
         }
 
-        //Позиция танка
-        public Point Position()
+        //Поворот танка
+        private float Vector()
         {
-            position.X = random.Next(1280);
-            position.Y = random.Next(720);
+            float catetX = target.X - position.X;
+            float catetY = target.Y - position.Y;
+            vector = (float)(Math.Atan2(catetY, catetX) * 180/Math.PI+90);
+
+            return vector;
+        }
+
+        //Позиция танка
+        private PointF Position()
+        {
+            position.X += speed*(float)Math.Cos(vector);
+            position.Y += speed*(float)Math.Sin(vector);
             return position;
         }
     }
-}      
+}
