@@ -7,7 +7,7 @@ namespace Tanks
     public partial class FormTank : Form
     {
         public Graphics g;
-        private ListTank listTank, listCar;
+        private ListUnit listUnit;
         private Point cursor;
 
         //Окно приложения
@@ -23,11 +23,8 @@ namespace Tanks
         //Загрузка окна
         private void FormTank_Load(object sender, EventArgs e)
         {
-            listTank = new ListTank();
-            listTank.CreateListTank();
-
-            listCar = new ListTank();
-            listCar.CreateListCar();
+            listUnit = new ListUnit();
+            listUnit.CreateListUnits();
         }
 
         //Обновление окна
@@ -35,8 +32,7 @@ namespace Tanks
         {
             g = e.Graphics;
             cursor = PointToClient(Cursor.Position);
-            listTank.DrawListTank(g, cursor);
-            listCar.DrawListCar(g, cursor);
+            listUnit.DrawListUnit(g, cursor);
         }
 
         //Таймер
