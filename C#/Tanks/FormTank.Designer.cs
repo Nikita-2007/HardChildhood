@@ -41,7 +41,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
+            this.BackColor = System.Drawing.Color.SaddleBrown;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Name = "FormTank";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
