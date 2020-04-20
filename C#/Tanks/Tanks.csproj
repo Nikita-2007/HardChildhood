@@ -53,6 +53,7 @@
     <Compile Include="FormTank.Designer.cs">
       <DependentUpon>FormTank.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDrawn.cs" />
     <Compile Include="ListUnit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
