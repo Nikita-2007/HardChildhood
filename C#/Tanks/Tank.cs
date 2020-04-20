@@ -2,11 +2,11 @@
 
 namespace Tanks
 {
-    class Tank : Unit
+    class Tank : Unit, IDrawn
     {       
-        private Bitmap bitmap = new Bitmap(Properties.Resources.Танк);
-        private Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
-        private Rectangle tower = new Rectangle(new Point(128, 0), new Size(256, 128));       
+        private readonly Bitmap bitmap = new Bitmap(Properties.Resources.Танк);
+        private readonly Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
+        private readonly Rectangle tower = new Rectangle(new Point(128, 0), new Size(256, 128));       
         private float vectorTower; // Угол поворота башни
  
         //Отрисовка Танка
@@ -18,6 +18,7 @@ namespace Tanks
             Vector();
             vectorTower = vector;
 
+            #region **********************Отрисовка по частям**********************
             //Корпус
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vector);
@@ -29,6 +30,9 @@ namespace Tanks
             g.RotateTransform(vectorTower);
             g.DrawImage(bitmap, -64, -90, tower, GraphicsUnit.Pixel);
             g.ResetTransform();
+
+            DrawInfo(g);
+            #endregion
         }
     }
 }
