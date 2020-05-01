@@ -10,7 +10,7 @@ namespace Tanks
         public uint id = ++ID;// Я тепя по ID вычеслю
         public PointF position; //Местоположение Танк
         public float vector; // Угол поворота корпуса
-        public float speed = 2; // скорость
+        public float speed; // скорость
         public Point target; //цель
         private Font font = new Font("Areal", 16, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Black);
@@ -31,7 +31,7 @@ namespace Tanks
         }
 
         //Поворот
-        public float Vector()
+        public float Vector(float vector, float speed)
         {
             // угол на цель
             float catetX = target.X - position.X;
