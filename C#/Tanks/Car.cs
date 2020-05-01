@@ -13,7 +13,7 @@ namespace Tanks
         {
             target = cursor;
             Position();
-            Vector();            
+            vector = Vector(vector, speed*3);            
 
             //Отрисовка Машинка
             g.TranslateTransform(position.X, position.Y);
