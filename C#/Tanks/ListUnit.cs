@@ -17,12 +17,14 @@ namespace Tanks
             {
                 listUnits.Add(new Tank
                 {
-                    position = StartPosition()
+                    position = StartPosition(),
+                    speed = 1
                 });
 
                 listUnits.Add(new Car
                 {
-                    position = StartPosition()
+                    position = StartPosition(),
+                    speed = 2
                 });
             }
             return listUnits;
