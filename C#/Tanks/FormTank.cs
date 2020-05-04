@@ -1,5 +1,6 @@
 ﻿using System; 
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tanks
@@ -9,6 +10,7 @@ namespace Tanks
         public Graphics g;
         private ListUnit listUnit;
         private Point cursor;
+        Shot shot = new Shot();
 
         //Окно приложения
         public FormTank()
@@ -35,6 +37,9 @@ namespace Tanks
             g = e.Graphics;
             cursor = PointToClient(Cursor.Position);
             listUnit.DrawListUnit(g, cursor);
+
+            shot.position = new PointF(50, 50);
+            shot.DrawShot(g, cursor);
         }
 
         //Таймер
@@ -71,12 +76,15 @@ namespace Tanks
             Console.Beep(523, 150);
             Console.Beep(440, 1000);
         }
-        private void Sound()
+        async private void Sound()
         {
-            for (int i = 100; i < 500; i += 10)
+            await Task.Run(() =>
             {
-             Console.Beep(i, 100);
-            }
+                for (int i = 100; i < 500; i += 10)
+                {
+                    Console.Beep(i, 100);
+                }
+            });
         }
     }
 }
