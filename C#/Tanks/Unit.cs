@@ -3,15 +3,12 @@ using System.Drawing;
 
 namespace Tanks
 {
-    abstract class Unit
+    abstract class Unit : AObject
     {
         private static uint ID; 
 
         public uint id = ++ID;// Я тепя по ID вычеслю
-        public PointF position; //Местоположение Танк
         public float vector; // Угол поворота корпуса
-        public float speed; // скорость
-        public Point target; //цель
         private Font font = new Font("Areal", 16, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Black);
         private Pen pen = new Pen(Color.Chartreuse, 5);
