@@ -13,7 +13,7 @@ namespace Tanks
         {
             target = cursor;
             Position();
-            vector = Vector(vector, speed*3);            
+            vector = Vector(vector, speed=3);            
 
             //Отрисовка Машинка
             g.TranslateTransform(position.X, position.Y);
@@ -21,7 +21,7 @@ namespace Tanks
             g.DrawImage(bitmap, -15, -20, body, GraphicsUnit.Pixel);
             g.ResetTransform();
 
-            DrawInfo(g);
+            DrawInfo(g);           
         }
     }
 }
