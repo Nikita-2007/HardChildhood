@@ -1,5 +1,6 @@
 ﻿using System; 
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,7 +11,7 @@ namespace Tanks
         public Graphics g;
         private ListUnit listUnit;
         private Point cursor;
-        Shot shot = new Shot();
+        Shot shot;
 
         //Окно приложения
         public FormTank()
@@ -29,17 +30,21 @@ namespace Tanks
             listUnit.CreateListUnits();
             //SW();
             Sound();
+
+            shot = new Shot();
+            shot.position = new PointF(50, 50);
+            shot.target = new PointF(1000, 600);
+            shot.speed = 20;
         }
 
         //Обновление окна
         private void FormTank_Paint(object sender, PaintEventArgs e)
         {
             g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
             cursor = PointToClient(Cursor.Position);
             listUnit.DrawListUnit(g, cursor);
-
-            shot.position = new PointF(50, 50);
-            shot.DrawShot(g, cursor);
+            shot.DrawShot(g);
         }
 
         //Таймер
