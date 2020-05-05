@@ -4,8 +4,9 @@ namespace Tanks
 {
     abstract class AObject 
     {
-        public PointF position;
-        public float speed ;
-        public Point target;
+        public float vector; // Угол поворота корпуса
+        public PointF position; // Позиция
+        public float speed ; // Скорость
+        public PointF target; // Цель
     }
 }
