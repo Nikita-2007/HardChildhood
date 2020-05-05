@@ -7,13 +7,13 @@ namespace Tanks
         private static Size size = new Size(64,64);
         private readonly Bitmap bitmap = new Bitmap(Properties.Resources.Машинка);
         private readonly Rectangle body = new Rectangle(new Point(0, 0), size);
-                      
+
         //Отрисовка Танка
         public void DrawUnit(Graphics g, Point cursor)
         {
             target = cursor;
             Position();
-            vector = Vector(vector, speed=3);            
+            vector = Vector(vector, speed=4);            
 
             //Отрисовка Машинка
             g.TranslateTransform(position.X, position.Y);
