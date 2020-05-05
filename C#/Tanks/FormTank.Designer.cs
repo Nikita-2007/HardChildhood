@@ -46,6 +46,7 @@
             this.Name = "FormTank";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tanks";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormTank_Load);
             this.Click += new System.EventHandler(this.FormTank_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormTank_Paint);
