@@ -1,17 +1,15 @@
-﻿using System; 
+﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Tanks
 {
     public partial class FormTank : Form
     {
+        private Game game;
         public Graphics g;
-        private ListUnit listUnit;
         private Point cursor;
-        Shot shot;
 
         //Окно приложения
         public FormTank()
@@ -26,15 +24,8 @@ namespace Tanks
         //Загрузка окна
         private void FormTank_Load(object sender, EventArgs e)
         {
-            listUnit = new ListUnit();
-            listUnit.CreateListUnits();
-            //SW();
-            Sound();
-
-            shot = new Shot();
-            shot.position = new PointF(50, 50);
-            shot.target = new PointF(1000, 600);
-            shot.speed = 20;
+            game = new Game();
+            game.StartGame();
         }
 
         //Обновление окна
@@ -43,8 +34,7 @@ namespace Tanks
             g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
             cursor = PointToClient(Cursor.Position);
-            listUnit.DrawListUnit(g, cursor);
-            shot.DrawShot(g);
+            game.StepGame(g, cursor);
         }
 
         //Таймер
@@ -58,38 +48,6 @@ namespace Tanks
         {
             if (timer.Enabled == false) timer.Enabled = true;
             else timer.Enabled = false;
-        }
-        //Звук заставки
-        private void SW()
-        {
-            Console.Beep(440, 500);
-            Console.Beep(440, 500);
-            Console.Beep(440, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 1000);
-            Console.Beep(659, 500);
-            Console.Beep(659, 500);
-            Console.Beep(659, 500);
-            Console.Beep(698, 350);
-            Console.Beep(523, 150);
-            Console.Beep(415, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 1000);
-        }
-        async private void Sound()
-        {
-            await Task.Run(() =>
-            {
-                for (int i = 100; i < 500; i += 10)
-                {
-                    Console.Beep(i, 100);
-                }
-            });
         }
     }
 }
