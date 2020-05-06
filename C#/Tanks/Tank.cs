@@ -12,7 +12,7 @@ namespace Tanks
  
         //Отрисовка Танка
         public void DrawUnit(Graphics g, Point cursor)
-        {
+        {           
             target = cursor;
             Position();
             vector = Vector(vector, speed);
@@ -30,6 +30,8 @@ namespace Tanks
             g.RotateTransform(vectorTower);
             g.DrawImage(bitmap, -64, -90, tower, GraphicsUnit.Pixel);
             g.ResetTransform();
+            Pen pen = new Pen(Brushes.Black, 2);
+            g.DrawEllipse(pen, position.X-15, position.Y-15, 30, 30);
 
             DrawInfo(g);
             #endregion
