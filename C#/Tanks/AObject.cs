@@ -4,9 +4,10 @@ namespace Tanks
 {
     abstract class AObject 
     {
-        public float vector; // Угол поворота корпуса
+        public Color color; // Цвет
         public PointF position; // Позиция
-        public float speed ; // Скорость
         public PointF target; // Цель
+        public float vector; // Угол поворота корпуса
+        public float speed ; // Скорость
     }
 }
