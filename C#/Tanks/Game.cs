@@ -7,7 +7,7 @@ namespace Tanks
     class Game
     {
         private ListUnit RedParty, BlueParty;
-        private ListShot listShot;
+        private ListShot AlistShot;
         Shot shot;
 
         //Старт игры
@@ -16,11 +16,11 @@ namespace Tanks
 
             //Красные
             RedParty = new ListUnit();
-            RedParty.CreateListUnits();
+            RedParty.CreateListUnits(Color.Red);
 
             //Сниние
             BlueParty = new ListUnit();
-            BlueParty.CreateListUnits();
+            BlueParty.CreateListUnits(Color.Blue);
 
             //SW();
             Sound();
@@ -37,6 +37,7 @@ namespace Tanks
             RedParty.DrawListUnit(g, cursor);
             BlueParty.DrawListUnit(g, cursor);
             shot.DrawShot(g);
+            //shot.DrawListShot(g);
         }
 
         //Звук заставки
