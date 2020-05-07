@@ -51,13 +51,11 @@ namespace Tanks
         }
 
         //Позиция
-        public PointF Position()
+        public PointF PositionUnit()
         {
             if (vector == angle)
-            {
-                position.X += speed * (float)Math.Cos(vector);
-                position.Y += speed * (float)Math.Sin(vector);
-            }
+                position = Position();
+
             return position;
         }
     }
