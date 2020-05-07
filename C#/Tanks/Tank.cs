@@ -9,12 +9,13 @@ namespace Tanks
         private readonly Rectangle body = new Rectangle(new Point(0, 0), size);
         private readonly Rectangle tower = new Rectangle(new Point(128, 0), size);
         private float vectorTower; // Угол поворота башни
- 
+        private Pen pen;
+
         //Отрисовка Танка
         public void DrawUnit(Graphics g, Point cursor)
         {           
             target = cursor;
-            Position();
+            PositionUnit();
             vector = Vector(vector, speed);
             vectorTower = Vector(vectorTower, speed*2);
 
@@ -30,7 +31,7 @@ namespace Tanks
             g.RotateTransform(vectorTower);
             g.DrawImage(bitmap, -64, -90, tower, GraphicsUnit.Pixel);
             g.ResetTransform();
-            Pen pen = new Pen(Brushes.Black, 2);
+            pen = new Pen(color, 2);
             g.DrawEllipse(pen, position.X-15, position.Y-15, 30, 30);
 
             DrawInfo(g);
