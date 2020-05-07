@@ -11,18 +11,20 @@ namespace Tanks
         private List<object> listUnits = new List<object>();
         
         //создаём список танков и Машинок
-        public List<object> CreateListUnits()
+        public List<object> CreateListUnits(Color color)
         {
             for (byte  i = 1; i <= count; i++)
             {
                 listUnits.Add(new Tank
                 {
+                    color = color,
                     position = StartPosition(),
                     speed = 1
                 });
 
                 listUnits.Add(new Car
                 {
+                    color = color,
                     position = StartPosition(),
                     speed = 2
                 });
@@ -30,7 +32,7 @@ namespace Tanks
             return listUnits;
         }       
 
-        // отрисовка списка танков 
+        // отрисовка списка танков и машинок
         public void DrawListUnit(Graphics g, Point cursor)
         {
             foreach (dynamic unit in listUnits)
@@ -39,7 +41,7 @@ namespace Tanks
             }
         }
 
-        //Стартовая позиция танка
+        //Стартовая позиция танка и мошинок
         private Point StartPosition()
         {
             Point position = new Point();
