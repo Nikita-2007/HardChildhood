@@ -7,8 +7,8 @@ namespace Tanks
 {
     public partial class FormTank : Form
     {
-        private Game game;
         public static Size window;
+        private Game game;
         public Graphics g;
         private Point cursor;
 
@@ -25,9 +25,9 @@ namespace Tanks
         //Загрузка окна
         private void FormTank_Load(object sender, EventArgs e)
         {
+            window = ClientSize;
             game = new Game();
             game.StartGame();
-            window = ClientSize;
         }
 
         //Обновление окна
