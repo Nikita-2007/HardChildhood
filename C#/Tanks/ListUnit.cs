@@ -47,7 +47,8 @@ namespace Tanks
         {
             Point position = new Point();
             position.X = window.Width * x / 100 + random.Next(-200, 200);
-            position.Y = random.Next(50, window.Height-50);
+            position.Y = random.Next(0, window.Height);
+
             return position;
         }
     }
