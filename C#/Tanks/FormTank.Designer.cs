@@ -51,7 +51,6 @@
             this.Click += new System.EventHandler(this.FormTank_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormTank_Paint);
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -59,4 +58,3 @@
         private System.Windows.Forms.Timer timer;
     }
 }
-
