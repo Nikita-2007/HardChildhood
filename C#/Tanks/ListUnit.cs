@@ -6,26 +6,27 @@ namespace Tanks
 {
     class ListUnit
     {
+        public Size window = FormTank.window;
         public byte count = 10;
         private Random random = new Random();
         private List<object> listUnits = new List<object>();
         
         //создаём список танков и Машинок
-        public List<object> CreateListUnits(Color color)
+        public List<object> CreateListUnits(Color color, int x)
         {
             for (byte  i = 1; i <= count; i++)
             {
                 listUnits.Add(new Tank
                 {
                     color = color,
-                    position = StartPosition(),
+                    position = StartPosition(x),
                     speed = 1
                 });
 
                 listUnits.Add(new Car
                 {
                     color = color,
-                    position = StartPosition(),
+                    position = StartPosition(x),
                     speed = 2
                 });
             }
@@ -42,11 +43,11 @@ namespace Tanks
         }
 
         //Стартовая позиция танка и мошинок
-        private Point StartPosition()
+        private Point StartPosition(int x)
         {
             Point position = new Point();
-            position.X = random.Next(1280);
-            position.Y = random.Next(720);
+            position.X = window.Width * x / 100 + random.Next(-200, 200);
+            position.Y = random.Next(50, window.Height-50);
             return position;
         }
     }
