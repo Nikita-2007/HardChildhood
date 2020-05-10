@@ -16,11 +16,11 @@ namespace Tanks
 
             //Красные
             RedParty = new ListUnit();
-            RedParty.CreateListUnits(Color.Red);
+            RedParty.CreateListUnits(Color.Red, 20);
 
             //Сниние
             BlueParty = new ListUnit();
-            BlueParty.CreateListUnits(Color.Blue);
+            BlueParty.CreateListUnits(Color.Blue, 80);
 
             //SW();
             Sound();
