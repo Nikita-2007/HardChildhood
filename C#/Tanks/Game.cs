@@ -7,8 +7,7 @@ namespace Tanks
     class Game
     {
         private ListUnit RedParty, BlueParty;
-        private ListShot AlistShot;
-        Shot shot;
+        private ListShot listShot;
 
         //Старт игры
         public void StartGame()
@@ -25,19 +24,16 @@ namespace Tanks
             //SW();
             Sound();
 
-            shot = new Shot();
-            shot.position = new PointF(50, 50);
-            shot.target = new PointF(1000, 600);
-            shot.speed = 20;
+            listShot = new ListShot();
         }
 
         //Шаг игры
         public void StepGame(Graphics g, Point cursor)
         {
-            RedParty.DrawListUnit(g, cursor);
-            BlueParty.DrawListUnit(g, cursor);
-            shot.DrawShot(g);
-            //shot.DrawListShot(g);
+            RedParty.DrawListUnit(g, cursor, listShot);
+            BlueParty.DrawListUnit(g, cursor, listShot);
+
+            listShot.DrawListShot(g);
         }
 
         //Звук заставки
