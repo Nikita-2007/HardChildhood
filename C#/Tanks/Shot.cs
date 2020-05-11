@@ -14,12 +14,12 @@ namespace Tanks
             vector = Vector();
             position0 = position;
             position = Position();
-            pen = new Pen(Color.DarkOrange, 3);
+            pen = new Pen(color, 3);
             g.DrawLine(pen, position, position0);
         }
 
         // угол на цель
-        private  float Vector()
+        public float Vector()
         {
             float catetX = target.X - position.X;
             float catetY = target.Y - position.Y;
