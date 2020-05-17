@@ -8,6 +8,8 @@ namespace Tanks
         private static uint ID; 
 
         public uint id = ++ID;// Я тепя по ID вычеслю
+        public float life; // Это жизнь
+        public sbyte timeShot;
         private Font font = new Font("Areal", 16, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Black);
         private Pen pen = new Pen(Color.Chartreuse, 5);
@@ -51,7 +53,8 @@ namespace Tanks
         }
 
         //Позиция
-        public PointF PositionUnit()
+        public PointF PositionUnit
+            ()
         {
             if (vector == angle)
                 position = Position();
