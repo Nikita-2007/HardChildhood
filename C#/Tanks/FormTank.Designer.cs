@@ -43,6 +43,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SaddleBrown;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTank";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tanks";
@@ -50,7 +51,9 @@
             this.Load += new System.EventHandler(this.FormTank_Load);
             this.Click += new System.EventHandler(this.FormTank_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormTank_Paint);
+            this.DoubleClick += new System.EventHandler(this.FormTank_DoubleClick);
             this.ResumeLayout(false);
+
         }
 
         #endregion
