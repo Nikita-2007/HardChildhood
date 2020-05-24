@@ -24,7 +24,7 @@ namespace Tanks
             g.ResetTransform();
             //Полоска жизни
             g.TranslateTransform(position.X, position.Y);
-            g.DrawLine(pen, -30, 30, 40, 30);
+            g.DrawLine(pen, -40, 40, 50, 40);
             g.ResetTransform();
         }
 
