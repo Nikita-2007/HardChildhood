@@ -10,7 +10,15 @@ namespace Tanks
         public byte count = 10;
         private Random random = new Random();
         private List<object> listUnits = new List<object>();
-        
+
+        /// <summary>
+        /// Команда:
+        /// </summary>
+        public ListUnit(Color color, int x)
+        {
+            CreateListUnits(color, x);
+        }
+
         //создаём список танков и Машинок
         public List<object> CreateListUnits(Color color, int x)
         {
