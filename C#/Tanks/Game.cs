@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
 
@@ -6,23 +7,21 @@ namespace Tanks
 {
     class Game
     {
+        private List<ListUnit> ListParty;
         private ListUnit RedParty, BlueParty;
         private ListShot listShot;
 
         //Старт игры
         public void StartGame()
         {
+            ListParty = new List<ListUnit>();
 
-            //Красные
-            RedParty = new ListUnit();
-            RedParty.CreateListUnits(Color.Red, 20);
-
-            //Сниние
-            BlueParty = new ListUnit();
-            BlueParty.CreateListUnits(Color.Blue, 80);
+            ListParty.Add(new ListUnit(Color.Red, 20));
+            ListParty.Add(new ListUnit(Color.Blue, 80));
+            ListParty.Add(new ListUnit(Color.Yellow, 50));
 
             //SW();
-            Sound();
+            Sound.Music();
 
             listShot = new ListShot();
         }
@@ -30,49 +29,10 @@ namespace Tanks
         //Шаг игры
         public void StepGame(Graphics g, Point cursor)
         {
-            RedParty.DrawListUnit(g, cursor, listShot);
-            BlueParty.DrawListUnit(g, cursor, listShot);
+            foreach (ListUnit party in ListParty)
+                party.DrawListUnit(g , cursor, listShot);
 
-            listShot.DrawListShot(g);
-        }
-
-        //Звук заставки
-        private void SW()
-        {
-            Console.Beep(440, 500);
-            Console.Beep(440, 500);
-            Console.Beep(440, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 1000);
-            Console.Beep(659, 500);
-            Console.Beep(659, 500);
-            Console.Beep(659, 500);
-            Console.Beep(698, 350);
-            Console.Beep(523, 150);
-            Console.Beep(415, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 1000);
-        }
-        async private void Sound()
-        {
-            await Task.Run(() =>
-            {
-                Console.Beep(440, 500);
-                Console.Beep(500, 500);
-                Console.Beep(440, 500);
-                Console.Beep(300, 500);
-                Console.Beep(37, 1);
-                Console.Beep(275, 200);
-                Console.Beep(250, 200);
-                Console.Beep(225, 200);
-                Console.Beep(200, 200);
-                Console.Beep(150, 750);
-            });
+                listShot.DrawListShot(g);
         }
     }
 }
