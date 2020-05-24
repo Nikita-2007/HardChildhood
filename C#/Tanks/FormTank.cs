@@ -48,8 +48,15 @@ namespace Tanks
         //Клик
         private void FormTank_Click(object sender, EventArgs e)
         {
-            if (timer.Enabled == false) timer.Enabled = true;
-            else timer.Enabled = false;
+            timer.Enabled = !timer.Enabled;
+        }
+
+        //Двойной клик
+        private void FormTank_DoubleClick(object sender, EventArgs e)
+        {
+            if ( FormBorderStyle == FormBorderStyle.Sizable)
+                 FormBorderStyle = FormBorderStyle.None;
+            else FormBorderStyle = FormBorderStyle.Sizable;
         }
     }
 }
