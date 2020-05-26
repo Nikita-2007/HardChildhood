@@ -11,29 +11,34 @@ namespace Tanks
         private Random random = new Random();
         private List<object> listUnits = new List<object>();
 
-        /// <summary>
-        /// Команда:
-        /// </summary>
-        public ListUnit(Color color, int x)
+        /// <summary>Команда : Пусто/summary>
+        public ListUnit()
         {
-            CreateListUnits(color, x);
+            Color color = Color.FromArgb(255, Color.FromArgb (random.Next(0xFFFFFF+1)));
+            CreateListUnits(color, new Point(50, 50));
+        }
+
+        /// <summary>Команда : Цвет и Позиция</summary>
+        public ListUnit(Color color, Point start)
+        {
+            CreateListUnits(color, start);
         }
 
         //создаём список танков и Машинок
-        public List<object> CreateListUnits(Color color, int x)
+        public List<object> CreateListUnits(Color color, Point start)
         {
             for (byte  i = 1; i <= count; i++)
             {
                 listUnits.Add(new Tank
                 {
                     color = color,
-                    position = StartPosition(x),                  
+                    position = StartPosition(start),                  
                 });
 
                 listUnits.Add(new Car
                 {
                     color = color,
-                    position = StartPosition(x),                   
+                    position = StartPosition(start),                   
                 });
             }
             return listUnits;
@@ -57,11 +62,11 @@ namespace Tanks
         }
 
         //Стартовая позиция танка и мошинок
-        private Point StartPosition(int x)
+        private Point StartPosition(Point start)
         {
             Point position = new Point();
-            position.X = window.Width * x / 100 + random.Next(-200, 200);
-            position.Y = random.Next(0, window.Height);
+            position.X = window.Width * start.X / 100 + random.Next(-200, 200);
+            position.Y = window.Height * start.X / 100 + random.Next(-200, 200);
 
             return position;
         }
