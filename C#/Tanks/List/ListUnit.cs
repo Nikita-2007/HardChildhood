@@ -27,22 +27,21 @@ namespace Tanks
         //создаём список танков и Машинок
         public List<object> CreateListUnits(Color color, Point start)
         {
-            for (byte  i = 1; i <= count; i++)
-            {
-                listUnits.Add(new Tank
-                {
-                    color = color,
-                    position = StartPosition(start),                  
-                });
+            for (byte  i = 1; i <= 10; i++)
+                NewUnit(new Car(color), start);
 
-                listUnits.Add(new Car
-                {
-                    color = color,
-                    position = StartPosition(start),                   
-                });
-            }
+            for (byte i = 1; i <= 5; i++)
+                NewUnit(new Tank(color), start);
+
             return listUnits;
-        }       
+        }
+
+        //Добовляем юнита в список
+        private void NewUnit(dynamic unit, Point start)
+        {
+            listUnits.Add(unit);
+            unit.position = StartPosition(start);
+        }
 
         // отрисовка списка танков и машинок
         public void DrawListUnit(Graphics g, Point cursor, ListShot listShot)
