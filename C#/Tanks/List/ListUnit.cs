@@ -32,6 +32,18 @@ namespace Tanks
             CreateListUnits(color, start, tank, car);
         }
 
+        /// <summary> Команда: Цвет и Позиция и Число юнитов <summary> \\\
+        public ListUnit(Color color, Point start, byte unit)
+        {
+            CreateListUnits(color, start, unit, unit);
+        }
+
+        /// <summary>Цвет: ... Позиция: ... Танки: ... Машинки: ... </summary>
+        public ListUnit(Color color, Point start, byte tank, byte car)
+        {
+            CreateListUnits(color, start, tank, car);
+        }
+
 
         //создаём список танков и Машинок
         public List<object> CreateListUnits(Color color, Point start, byte tank, byte car)
