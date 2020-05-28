@@ -8,7 +8,7 @@ namespace Tanks
         private static uint ID; 
 
         public uint id = ++ID;// Я тепя по ID вычеслю
-        public float life; // Это жизнь
+        public float life { get; set;} // Это жизнь
         public sbyte timeShot;
         private Font font = new Font("Areal", 16, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Black);
