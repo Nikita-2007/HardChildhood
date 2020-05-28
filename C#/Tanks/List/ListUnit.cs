@@ -7,30 +7,39 @@ namespace Tanks
     class ListUnit
     {
         public Size window = FormTank.window;
-        public byte count = 10;
+        public byte count = 5;
         private Random random = new Random();
         private List<object> listUnits = new List<object>();
+
 
         /// <summary>Команда : Пусто/summary>
         public ListUnit()
         {
             Color color = Color.FromArgb(255, Color.FromArgb (random.Next(0xFFFFFF+1)));
-            CreateListUnits(color, new Point(50, 50));
+            CreateListUnits(color, new Point(50, 50), count, count);
         }
 
         /// <summary>Команда : Цвет и Позиция</summary>
         public ListUnit(Color color, Point start)
         {
-            CreateListUnits(color, start);
+            CreateListUnits(color, start, count, count);
         }
 
-        //создаём список танков и Машинок
-        public List<object> CreateListUnits(Color color, Point start)
+        /// <summary>Позиция танков и машинок : Пусто/summary>
+        public ListUnit(Point start, byte tank, byte car)
         {
-            for (byte  i = 1; i <= 10; i++)
+            Color color = Color.FromArgb(255, Color.FromArgb(random.Next(0xFFFFFF + 1)));
+            CreateListUnits(color, start, tank, car);
+        }
+
+
+        //создаём список танков и Машинок
+        public List<object> CreateListUnits(Color color, Point start, byte tank, byte car)
+        {
+            for (byte  i = 1; i <= car; i++)
                 NewUnit(new Car(color), start);
 
-            for (byte i = 1; i <= 5; i++)
+            for (byte i = 1; i <= tank; i++)
                 NewUnit(new Tank(color), start);
 
             return listUnits;
@@ -65,7 +74,7 @@ namespace Tanks
         {
             Point position = new Point();
             position.X = window.Width * start.X / 100 + random.Next(-200, 200);
-            position.Y = window.Height * start.X / 100 + random.Next(-200, 200);
+            position.Y = window.Height * start.Y / 100 + random.Next(-200, 200);
 
             return position;
         }
