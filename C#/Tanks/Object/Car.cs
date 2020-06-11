@@ -15,7 +15,6 @@ namespace Tanks
         public Car(Color color)
         {
             this.color = color;
-            speed = 2;
             life = 10;
         }
 
@@ -24,8 +23,7 @@ namespace Tanks
         {
             solidBrush = new SolidBrush(color);
             target = cursor;
-            PositionUnit();
-            vector = Vector(vector, speed=4);
+            speed = 4;
 
             //Цвет
             g.TranslateTransform(position.X, position.Y);
