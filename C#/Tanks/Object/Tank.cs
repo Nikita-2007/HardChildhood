@@ -26,8 +26,6 @@ namespace Tanks
         {
             solidBrush = new SolidBrush(color);
             target = cursor;
-            PositionUnit();
-            vector = Vector(vector, speed);
             vectorTower = Vector(vectorTower, speed*2);
 
             #region **********************Отрисовка по частям**********************
