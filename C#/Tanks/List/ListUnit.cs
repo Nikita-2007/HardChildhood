@@ -9,7 +9,7 @@ namespace Tanks
         public Size window = FormTank.window;
         public byte count = 5;
         private Random random = new Random();
-        private List<object> listUnits = new List<object>();
+        public List<object> listUnits = new List<object>();
 
 
         /// <summary>Команда : Пусто/summary>
