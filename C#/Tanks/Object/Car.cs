@@ -16,6 +16,7 @@ namespace Tanks
         {
             this.color = color;
             life = 10;
+            act = Act.WAIT;
         }
 
         //Отрисовка Машинки
