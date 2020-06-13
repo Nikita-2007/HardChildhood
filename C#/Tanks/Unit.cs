@@ -21,7 +21,7 @@ namespace Tanks
         {
             //ID
             g.TranslateTransform(position.X, position.Y);
-            g.DrawString(id.ToString(), font, color, -10, -50);            
+            g.DrawString(act.ToString(), font, color, -10, -50);            
             g.ResetTransform();
             //Полоска жизни
             g.TranslateTransform(position.X, position.Y);
