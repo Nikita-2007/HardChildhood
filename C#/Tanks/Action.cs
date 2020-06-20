@@ -7,6 +7,7 @@ namespace Tanks
     class Action
     {
         private List<ListUnit> ListParty;
+        public PointF _target = PointF.Empty;
 
         //Перебор всех юнитов
         public void ActUnit(List<ListUnit> ListParty, ListShot listShot)
@@ -56,7 +57,7 @@ namespace Tanks
                 unit.act = Act.DEAD;
 
             //Если надо найти танк
-            FindTarget(unit);
+            unit.target = FindTarget(unit);
         }
 
         //Процес поиска
@@ -79,13 +80,21 @@ namespace Tanks
         }
 
         //Поиск цели
-        private float FindTarget(dynamic unit)
+        private PointF FindTarget(dynamic unit)
         {
+            PointF target;
+            float temp = 2000;
+            float temp2 = 2000;
             foreach (ListUnit party in ListParty)
                 foreach (dynamic findUnit in party.listUnits)
-                    Func2D.Delta(unit.position, findUnit.position);
-
-            return 0;
+                {
+                    float find = Func2D.Delta(unit.position, findUnit.position);
+                    if (find  < temp || temp < temp2) temp2 = find;
+                        temp = find;
+                    target = findUnit.position;
+                }
+            target = _target;
+            return target;
         }
     }
 }
