@@ -23,7 +23,7 @@ namespace Tanks
         public void DrawUnit(Graphics g, Point cursor)
         {
             solidBrush = new SolidBrush(color);
-            target = cursor;
+            //target = cursor;
             speed = 4;
 
             //Цвет
