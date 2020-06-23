@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.Remoting.Lifetime;
 
 namespace Tanks
 {
@@ -18,7 +19,7 @@ namespace Tanks
             position = unit.position;
             target = unit.target;
             vector = (float)Math.Atan2(unit.target.Y - unit.position.Y,
-                unit.target.X - unit.position.X);
+            unit.target.X - unit.position.X);
             speed = 16;
         }
 
