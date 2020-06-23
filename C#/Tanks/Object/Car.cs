@@ -20,10 +20,9 @@ namespace Tanks
         }
 
         //Отрисовка Машинки
-        public void DrawUnit(Graphics g, Point cursor)
+        public void DrawUnit(Graphics g)
         {
             solidBrush = new SolidBrush(color);
-            //target = cursor;
             speed = 4;
 
             //Цвет
