@@ -65,11 +65,11 @@ namespace Tanks
         }
 
         // отрисовка списка танков и машинок
-        public void DrawListUnit(Graphics g, Point cursor, ListShot listShot)
+        public void DrawListUnit(Graphics g, ListShot listShot)
         {
             foreach (dynamic unit in listUnits)
             {
-                unit.DrawUnit(g, cursor);
+                unit.DrawUnit(g);
 
                 unit.timeShot++;
                 if (unit.timeShot > 120)
