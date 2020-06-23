@@ -14,7 +14,7 @@ namespace Tanks
         private Font font = new Font("Areal", 16, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Black);
         private Pen pen = new Pen(Color.Chartreuse, 5);
-        private float angle; 
+        private float angle;
 
         //Номер и полоска жизини
         public void DrawInfo(Graphics g)
