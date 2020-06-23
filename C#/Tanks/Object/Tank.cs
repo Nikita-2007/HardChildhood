@@ -23,10 +23,9 @@ namespace Tanks
         }
 
         //Отрисовка Танка
-        public void DrawUnit(Graphics g, Point cursor)
+        public void DrawUnit(Graphics g)
         {
             solidBrush = new SolidBrush(color);
-            //target = cursor;
             vectorTower = Vector(vectorTower, speed*2);
 
             #region **********************Отрисовка по частям**********************
