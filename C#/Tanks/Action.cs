@@ -7,7 +7,6 @@ namespace Tanks
     class Action
     {
         private List<ListUnit> ListParty;
-        public PointF _target = PointF.Empty;
 
         //Перебор всех юнитов
         public void ActUnit(List<ListUnit> ListParty, ListShot listShot)
@@ -19,15 +18,14 @@ namespace Tanks
                     if (unit.act != Act.DEAD) Logic(unit);
         }
 
-        //Лагика
+        //Логика
         public void Logic(dynamic unit)
         {
             {
                 switch (unit.act)
                 {
-                    case Act.WAIT:                        
-                        goto case Act.FIRE;
-                        //ActWAIT(unit);
+                    case Act.WAIT:            
+                        ActWAIT(unit);
                         break;
 
                     case Act.FIND:
@@ -57,19 +55,22 @@ namespace Tanks
                 unit.act = Act.DEAD;
 
             //Если надо найти танк
-            unit.target = FindTarget(unit);
+            else
+                ActFIND(unit);
+            unit.act = Act.FIRE;
         }
 
         //Процес поиска
         private void ActFIND(dynamic unit)
         {
-
+            //Юнит едит пока не найдёт цель, башня прямо, через 1 секунду - WAIT
+            FindTarget(unit);
         }
 
         //Процес сближения
         private void ActMOVE(dynamic unit)
         {
-
+            //Юнит едит, башня на цель, когда сможет стрелять - FIRE
         }
 
         //Процес отаки
@@ -81,20 +82,19 @@ namespace Tanks
 
         //Поиск цели
         private PointF FindTarget(dynamic unit)
-        {
-            PointF target;
-            float temp = 2000;
-            float temp2 = 2000;
+        {            
+            float findDelta, minDelta = 500;
             foreach (ListUnit party in ListParty)
                 foreach (dynamic findUnit in party.listUnits)
                 {
-                    float find = Func2D.Delta(unit.position, findUnit.position);
-                    if (find  < temp || temp < temp2) temp2 = find;
-                        temp = find;
-                    target = findUnit.position;
+                    findDelta = Func2D.Delta(unit.position, findUnit.position);
+                    if (findDelta < minDelta)
+                    {
+                        minDelta = findDelta;
+                        unit.target = findUnit.position;
+                    }
                 }
-            target = _target;
-            return target;
+            return unit.target;
         }
     }
 }
