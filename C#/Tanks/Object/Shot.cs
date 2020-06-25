@@ -22,13 +22,18 @@ namespace Tanks
             unit.target.X - unit.position.X);
             speed = 16;
         }
-
-        //Отрисовка Пульки
-        public void DrawShot(Graphics g)
+        
+        //Расчот палёта Пульки
+        public void MoveShot()
         {
             position0 = position;
             position = Position();
             speed *= 0.979542378146892f;
+        }
+
+        //Отрисовка Пульки
+        public void DrawShot(Graphics g)
+        {
             g.DrawLine(pen, position, position0);
         }
     }
