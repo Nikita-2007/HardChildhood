@@ -16,6 +16,12 @@ namespace Tanks
             await Task.Run(() => Console.Beep(300,50));
         }
 
+        //Удаление выстрела
+        public void RemoveShot(Shot shot)
+        {
+            listShot.Remove(shot);
+        }
+
         //Отрисовываеи лист пулек
         public void DrawListShot(Graphics g)
         {
