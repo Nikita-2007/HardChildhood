@@ -65,20 +65,10 @@ namespace Tanks
         }
 
         // отрисовка списка танков и машинок
-        public void DrawListUnit(Graphics g, ListShot listShot)
+        public void DrawListUnit(Graphics g)
         {
             foreach (dynamic unit in listUnits)
-            {
                 unit.DrawUnit(g);
-
-                unit.timeShot++;
-                if (unit.timeShot > 120)
-                {
-                    listShot.NewShot(unit);
-                    unit.timeShot = 0;
-                }
-
-            }
         }
 
         //Стартовая позиция танка и мошинок
