@@ -18,11 +18,11 @@ namespace Tanks
 
         public void DrawBang(Graphics g)
         {
-            time++;
             g.TranslateTransform(position.X, position.Y);
             g.FillEllipse(new SolidBrush(Color.FromArgb(192 - time, time + 128, time, 0)),
                 new RectangleF(-time/2,-time/2, time, time));
             g.ResetTransform();
+            Sound.Bang();
         }
     }
 }
