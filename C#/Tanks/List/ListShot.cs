@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Threading.Tasks;
 
 namespace Tanks
 {
@@ -9,20 +7,33 @@ namespace Tanks
     {
         public List<Shot> listShot = new List<Shot>();
         public List<Bang> listBang = new List<Bang>();
+        public List<Cratar> listCratar = new List<Cratar>();
 
         // Добовляем выстрел
-        async public void NewShot(dynamic unit)
+        public void NewShot(dynamic unit)
         {
             listShot.Add(new Shot(unit));
-            await Task.Run(() => Console.Beep(300,50));
         }
 
         //Удаление выстрела
-        async public void RemoveShot(Shot shot)
-        {
-            await Task.Run(() => Console.Beep(100, 100));
+        public void RemoveShot(Shot shot)
+        {            
             listBang.Add(new Bang(shot.position));
             listShot.Remove(shot);
+        }
+
+        //Удаление Взрыва
+        public void RemoveBang(Bang bang)
+        {
+            listCratar.Add(new Cratar(bang.position));          
+            listBang.Remove(bang);
+        }
+
+        //Отрисовываем краторы
+        public void DrawListCratar(Graphics g)
+        {
+            foreach (Cratar сratar in listCratar)
+                сratar.DrawCratar(g);
         }
 
         //Отрисовываеи лист пулек и взрывов
@@ -32,6 +43,6 @@ namespace Tanks
                 shot.DrawShot(g);
             foreach (Bang bang in listBang)
                 bang.DrawBang(g);
-        }
+        }       
     }
 }
