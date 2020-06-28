@@ -69,6 +69,7 @@
     <Compile Include="Object\Shot.cs" />
     <Compile Include="Object\Tank.cs" />
     <Compile Include="Resources\Sound.cs" />
+    <Compile Include="Object\Cratar.cs" />
     <Compile Include="Script\Shooting.cs" />
     <Compile Include="Unit.cs" />
     <EmbeddedResource Include="FormTank.resx">
