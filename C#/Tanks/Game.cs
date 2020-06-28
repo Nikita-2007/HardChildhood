@@ -36,10 +36,10 @@ namespace Tanks
             action.ActUnit(ListParty, listShot);
             shooting.ActShot(ListParty, listShot);
 
+            listShot.DrawListCratar(g);
             foreach (ListUnit party in ListParty)
-                party.DrawListUnit(g);
-                
-                listShot.DrawListShot(g);
+                party.DrawListUnit(g);                
+            listShot.DrawListShot(g);
         }
     }
 }
