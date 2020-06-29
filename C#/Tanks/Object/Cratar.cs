@@ -5,7 +5,7 @@ namespace Tanks
     class Cratar
     {
         public PointF position;
-        public byte time;
+        public ushort time;
 
         /// <summary>
         /// 
@@ -18,7 +18,7 @@ namespace Tanks
         public void DrawCratar(Graphics g)
         {
             g.TranslateTransform(position.X, position.Y);
-            g.FillEllipse(new SolidBrush(Color.FromArgb(200, 0, 0, 0)),
+            g.FillEllipse(new SolidBrush(Color.FromArgb(200-time/3, 0, 0, 0)), //(64/time +16, 32, 16, 0)),
                 new RectangleF(-35, -35, 70, 70));
             g.ResetTransform();
         }
