@@ -29,11 +29,17 @@ namespace Tanks
             listBang.Remove(bang);
         }
 
-        //Отрисовываем краторы
+        //Удаление Кратора
+        public void RemoveCratar(Cratar cratar)
+        {
+            listCratar.Remove(cratar);
+        }
+
+            //Отрисовываем краторы
         public void DrawListCratar(Graphics g)
         {
-            foreach (Cratar сratar in listCratar)
-                сratar.DrawCratar(g);
+        foreach (Cratar сratar in listCratar)
+            сratar.DrawCratar(g);
         }
 
         //Отрисовываеи лист пулек и взрывов
