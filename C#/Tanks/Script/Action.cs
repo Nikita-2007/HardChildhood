@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using Game2d;
 
 namespace Tanks
 {
@@ -96,7 +95,7 @@ namespace Tanks
             foreach (ListUnit party in ListParty)
                 foreach (dynamic findUnit in party.listUnits)
                 {
-                    findDelta = Func2D.Delta(unit.position, findUnit.position);
+                    findDelta = unit.Delta(unit.position, findUnit.position);
                     if (findDelta < minDelta)
                     {
                         minDelta = findDelta;
