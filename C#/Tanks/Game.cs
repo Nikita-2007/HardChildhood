@@ -15,12 +15,12 @@ namespace Tanks
         {
             ListParty = new List<ListUnit>();
 
-            ListParty.Add(new ListUnit());
             ListParty.Add(new ListUnit(Color.Red, new Point(20, 20)));
-            ListParty.Add(new ListUnit(Color.Blue, new Point(80, 20), 5, 5));
-            ListParty.Add(new ListUnit(new Point(80, 80), 5, 5));
-            ListParty.Add(new ListUnit(Color.Yellow, new Point(20, 80), 5));
-        
+            ListParty.Add(new ListUnit(Color.Blue, new Point(80, 80), 5, 5));
+            //ListParty.Add(new ListUnit());
+            //ListParty.Add(new ListUnit(new Point(80, 80), 5, 5));
+            //ListParty.Add(new ListUnit(Color.Yellow, new Point(20, 80), 5));
+
             //SW();
             Sound.Music();
 
