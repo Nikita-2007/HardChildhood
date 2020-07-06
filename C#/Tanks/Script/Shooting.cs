@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Remoting.Lifetime;
 
 namespace Tanks
 {
@@ -8,6 +7,7 @@ namespace Tanks
         private Shot shot;
         private Bang bang;
         private Cratar cratar;
+        private float delta;
 
         //Расчет стрельбы
         public void ActShot(List<ListUnit> ListParty, ListShot listShot)
@@ -16,23 +16,21 @@ namespace Tanks
             for(int i = 0; i < listShot.listShot.Count; i++)
             {
                 shot = listShot.listShot[i];
-                shot.MoveShot();
-                if (shot.speed < 2)
+                shot.MoveShot();            
+                if (shot.Delta(shot.position, shot.target) < 32 || shot.speed < 2)                   
                 {
-                    //Расчет дамага
+                    //Расчет дамага     
                     foreach (ListUnit party in ListParty)
                         foreach (dynamic unit in party.listUnits)
                         {
-                            float delta;
-
-                            delta = unit.Delta(shot.position, unit.position);
-                            if (delta < 32)
-                                
-                                unit.life -= 100/delta;
-
+                            if (unit.act != Act.DEAD)
+                            {
+                                delta = unit.Delta(shot.position, unit.position);
+                                if (delta < 48)
+                                    unit.life -= 175 / delta;
+                            }
                         }
-
-                        listShot.RemoveShot(shot);
+                    listShot.RemoveShot(shot);
                 }
             }
 
