@@ -10,6 +10,7 @@ namespace Tanks
         public uint id = ++ID;// Я тепя по ID вычеслю
         public Act act; //Логика
         public float life; // Это жизнь
+        public float vision; //Дальность обзора
         public sbyte timeShot;
         private Font font = new Font("Areal", 16, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Black);
@@ -21,7 +22,7 @@ namespace Tanks
         {
             //ID
             g.TranslateTransform(position.X, position.Y);
-            g.DrawString(life.ToString(), font, color, -10, -50);            
+            g.DrawString(act.ToString(), font, color, -10, -50);            
             g.ResetTransform();
             //Полоска жизни
             g.TranslateTransform(position.X, position.Y);
