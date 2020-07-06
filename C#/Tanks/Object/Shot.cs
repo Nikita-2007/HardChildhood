@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Runtime.Remoting.Lifetime;
 
 namespace Tanks
 {
