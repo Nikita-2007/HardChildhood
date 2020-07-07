@@ -55,8 +55,7 @@ namespace Tanks
         }
 
         //Позиция
-        public PointF PositionUnit
-            ()
+        public PointF PositionUnit()
         {
             if (vector == angle)
                 position = Position();
