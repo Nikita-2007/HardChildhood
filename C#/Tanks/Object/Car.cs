@@ -16,7 +16,7 @@ namespace Tanks
         {
             this.color = color;
             life = 10;
-            vision = 2024;
+            vision = 512;
             act = Act.WAIT;
         }
 
