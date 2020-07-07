@@ -76,16 +76,14 @@ namespace Tanks
                     }
 
                 //Прверка на атаку
-                if (minDelta < 512)
+                if (minDelta < unit.vision)
                 {
                     unit.act = Act.FIRE;
                 }
 
                 //Проверка на движение
-                else if (minDelta < 1024)
-                {
+                else if (minDelta < unit.vision*2)
                     unit.act = Act.MOVE;
-                }
 
                 //Поиск цели
                 else
@@ -99,14 +97,26 @@ namespace Tanks
         //Процес поиска
         private void ActFIND(dynamic unit)
         {
-            //Юнит едит пока не найдёт цель, башня прямо
+            if (unit.Delta(unit.target, unit.position) > unit.speed)
+            {
+                unit.PositionUnit();
+                unit.vector = unit.Vector(unit.vector, unit.speed);
+            }
+            else
+                unit.act = Act.WAIT;
         }
 
         //Процес сближения
         private void ActMOVE(dynamic unit)
         {
             //Юнит едит, башня на цель, когда сможет стрелять - FIRE
-            
+            if (unit.Delta(unit.target, unit.position) < unit.vision)
+            {
+                unit.PositionUnit();
+                unit.vector = unit.Vector(unit.vector, unit.speed);
+            }
+            else
+                unit.act = Act.WAIT; ;
         }
 
         //Процес атаки
