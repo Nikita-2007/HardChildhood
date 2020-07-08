@@ -21,6 +21,7 @@ namespace Tanks
             life = 40;
             vision = 512;
             act = Act.WAIT;
+            timeShot = 60;
         }
 
         //Отрисовка Танка
