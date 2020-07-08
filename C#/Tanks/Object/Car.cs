@@ -18,13 +18,14 @@ namespace Tanks
             life = 10;
             vision = 512;
             act = Act.WAIT;
+            timeShot = 80;
         }
 
         //Отрисовка Машинки
         public void DrawUnit(Graphics g)
         {
             solidBrush = new SolidBrush(color);
-            speed = 4;
+            speed = 2;
 
             //Цвет
             g.TranslateTransform(position.X, position.Y);
