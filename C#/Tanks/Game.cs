@@ -9,6 +9,7 @@ namespace Tanks
         private ListShot listShot;
         private Action action;
         private Shooting shooting;
+        private Unit unit;
 
         //Старт игры
         public void StartGame()
@@ -22,12 +23,12 @@ namespace Tanks
             //ListParty.Add(new ListUnit(Color.Yellow, new Point(20, 80), 5));
 
             //SW();
-            Sound.Music();
+            Sound.Music();            
 
             listShot = new ListShot();
 
             action = new Action();
-            shooting = new Shooting();
+            shooting = new Shooting();          
         }
 
         //Шаг игры
