@@ -14,19 +14,24 @@ namespace Tanks
         public sbyte timeShot;
         private Font font = new Font("Areal", 16, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Black);
-        private Pen pen = new Pen(Color.Chartreuse, 5);
+        private Pen penG = new Pen(Color.Chartreuse, 5);
+        private Pen penR = new Pen(Color.Maroon, 5);
         private float angle;
+        public float center;
 
         //Номер и полоска жизини
         public void DrawInfo(Graphics g)
         {
+            if (life <= 0)
+                life = 0;
             //ID
             g.TranslateTransform(position.X, position.Y);
-            g.DrawString(act.ToString(), font, color, -10, -50);            
+            g.DrawString(life.ToString(), font, color, -10, -50);
             g.ResetTransform();
             //Полоска жизни
-            g.TranslateTransform(position.X, position.Y);
-            g.DrawLine(pen, -40, 40, 50, 40);
+            g.TranslateTransform(position.X, position.Y);           
+            g.DrawLine(penG, -40, 40, center, 40);
+            g.DrawLine(penR, center, 40, 40, 40);
             g.ResetTransform();
         }
 
