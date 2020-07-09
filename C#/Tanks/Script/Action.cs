@@ -25,29 +25,27 @@ namespace Tanks
         //Логига действий
         private void Logic(dynamic unit)
         {
+            switch (unit.act)
             {
-                switch (unit.act)
-                {
-                    case Act.WAIT:
-                        ActWait(unit);
-                        break;
+                case Act.WAIT:
+                    ActWait(unit);
+                    break;
 
-                    case Act.FIND:
-                        ActFind(unit);
-                        break;
+                case Act.FIND:
+                    ActFind(unit);
+                    break;
 
-                    case Act.MOVE:
-                        ActMove(unit);
-                        break;
+                case Act.MOVE:
+                    ActMove(unit);
+                    break;
 
-                    case Act.FIRE:
-                        ActFire(unit);
-                        break;
+                case Act.FIRE:
+                    ActFire(unit);
+                    break;
 
-                    default:
-                        unit.act = Act.WAIT;
-                        break;
-                }
+                default:
+                    unit.act = Act.WAIT;
+                    break;
             }
         }
 
@@ -62,7 +60,7 @@ namespace Tanks
             else
             {
                 //Поиск ближайщего танка
-                float findDelta = unit.vision, minDelta = unit.vision;
+                float findDelta = unit.vision * 2, minDelta = unit.vision * 2;
                 foreach (ListUnit party in ListParty)
                     foreach (dynamic findUnit in party.listUnits)
                     {
@@ -98,10 +96,10 @@ namespace Tanks
         //Процесс поиска
         private void ActFind(dynamic unit)
         {
-            if (unit.Delta(unit.position, unit.target) > unit.speed*16)
+            if (unit.Delta(unit.position, unit.target) > unit.speed * 32)
             {
-                unit.PositionUnit();
                 unit.vector = unit.Vector(unit.vector, unit.speed);
+                unit.PositionUnit();
             }
             else
                 unit.act = Act.WAIT;
@@ -112,8 +110,8 @@ namespace Tanks
         {
             if (unit.Delta(unit.position, unit.target) > unit.vision)
             {
-                unit.PositionUnit();
                 unit.vector = unit.Vector(unit.vector, unit.speed);
+                unit.PositionUnit();
             }
             else
                 unit.act = Act.WAIT;
