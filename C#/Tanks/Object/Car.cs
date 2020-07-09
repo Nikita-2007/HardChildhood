@@ -15,6 +15,7 @@ namespace Tanks
         public Car(Color color)
         {
             this.color = color;
+            speed = 1;
             life = 10;
             vision = 512;
             act = Act.WAIT;
@@ -25,7 +26,7 @@ namespace Tanks
         public void DrawUnit(Graphics g)
         {
             solidBrush = new SolidBrush(color);
-            speed = 2;
+            center = life*80/10-40;
 
             //Цвет
             g.TranslateTransform(position.X, position.Y);
