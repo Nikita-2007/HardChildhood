@@ -17,7 +17,7 @@ namespace Tanks
         public Tank(Color color)
         {
             this.color = color;
-            speed = 1;
+            speed = 0.5f;
             life = 40;
             vision = 512;
             act = Act.WAIT;
@@ -28,7 +28,8 @@ namespace Tanks
         public void DrawUnit(Graphics g)
         {
             solidBrush = new SolidBrush(color);
-            vectorTower = Vector(vectorTower, speed*2);
+            vectorTower = Vector(vectorTower, speed * 2);
+            center = life*80/40-40;
 
             #region **********************Отрисовка по частям**********************
 
