@@ -39,7 +39,7 @@ namespace Tanks
             g.FillRectangle(solidBrush, -40, -30, 80, 60);
 
             //Корпус
-            g.DrawImage(bitmap, -64, -75, body, GraphicsUnit.Pixel);
+            g.DrawImage(bitmap, 0, 0, body, GraphicsUnit.Pixel);
             g.ResetTransform();
 
             //Башня
