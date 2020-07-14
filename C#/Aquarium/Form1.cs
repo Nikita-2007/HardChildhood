@@ -10,11 +10,7 @@ namespace Aquarium
         public static Size window;
         public Graphics g;
         int x;
-        private Fishes fishes = new Fishes();
-
-        Fish1 fishone = new Fish1();
-        Fish2 fishtwo = new Fish2();
-        Fish3 fishthree = new Fish3();
+        private Fishes fishes;
 
         //Окно приложения
         public Form1()
@@ -39,14 +35,17 @@ namespace Aquarium
         {
             g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
-            fishone.DrawFishs1(g);
-            fishtwo.DrawFishs2(g);
-            fishthree.DrawFishs3(g);
+            fishes.DrawListFish(g);
         }
 
         private void Form1_Click(object sender, EventArgs e)
         {
             timer1.Enabled = !timer1.Enabled;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            fishes = new Fishes();
         }
     }
 }
