@@ -4,11 +4,14 @@ namespace Aquarium
 {
     class Fish1 : AFish, IFish
     {
-        private Bitmap bitmap = Properties.Resources._1Fish;
+        public Bitmap bitmap = Properties.Resources._1Fish;
 
         //Отрисовка Рыбы
         public void DrawFish(Graphics g)
         {
+            Target();
+            Position(bitmap);
+
             g.DrawImage(bitmap, position.X, position.Y);
         }
     }
