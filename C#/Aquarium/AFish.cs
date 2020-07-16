@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace Aquarium
 {
@@ -9,18 +8,29 @@ namespace Aquarium
         public PointF position = new PointF();
         public PointF target = new PointF();
 
-        private Random random = new Random();
+        private Random random = new Random();       
+        private byte x = 1;
 
         //Расчет Позиции
-        public PointF Position()
-        {
+        public PointF Position(Bitmap bitmap)
+        {            
             if (target.X > position.X)
             {
-                position.X++;
+                if (x == 1)
+                {
+                    bitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                    x = 2;
+                }
+                position.X ++;
             }
             else
             {
-                position.X--;
+                if (x == 2)
+                {
+                    bitmap.RotateFlip(RotateFlipType.Rotate180FlipY);
+                    x = 1;
+                }
+                position.X --;
             }
 
             if (target.Y > position.Y)
@@ -37,8 +47,8 @@ namespace Aquarium
         {
             if (position.X == target.X || position.Y == target.Y)
             {
-                target.X = random.Next(0, 1920);
-                target.Y = random.Next(0, 1000);
+                target.X = random.Next(0, 1800);
+                target.Y = random.Next(0, 1080);
             }
             return target;
         }
