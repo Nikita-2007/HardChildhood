@@ -39,8 +39,7 @@ namespace Aquarium
         {
             foreach (dynamic fish in listfish)
             {
-                fish.Target();
-                fish.Position();                
+
                 fish.DrawFish(g);              
             }
         }
