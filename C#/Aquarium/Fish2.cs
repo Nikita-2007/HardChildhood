@@ -9,6 +9,9 @@ namespace Aquarium
         //Отрисовка Рыбы
         public void DrawFish(Graphics g)
         {
+            Target();
+            Position(bitmap);
+
             g.DrawImage(bitmap, position.X, position.Y);
         }
     }
