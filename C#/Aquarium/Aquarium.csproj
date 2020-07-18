@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AFish.cs" />
+    <Compile Include="Babble.cs" />
     <Compile Include="Fish1.cs" />
     <Compile Include="Fish2.cs" />
     <Compile Include="Fish3.cs" />
@@ -106,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3fishZ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buble.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
