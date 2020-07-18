@@ -73,29 +73,9 @@ namespace Aquarium.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1FishZ {
-            get {
-                object obj = ResourceManager.GetObject("_1FishZ", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _2fish {
             get {
                 object obj = ResourceManager.GetObject("2fish", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _2FishZ {
-            get {
-                object obj = ResourceManager.GetObject("_2FishZ", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +93,9 @@ namespace Aquarium.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3fishZ {
+        internal static System.Drawing.Bitmap buble {
             get {
-                object obj = ResourceManager.GetObject("_3fishZ", resourceCulture);
+                object obj = ResourceManager.GetObject("buble", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
