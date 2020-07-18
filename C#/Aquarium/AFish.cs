@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection.Emit;
 
 namespace Aquarium
 {
@@ -7,11 +8,12 @@ namespace Aquarium
     {
         public PointF position = new PointF();
         public PointF target = new PointF();
+        public int fish123;
+        public PointF bposition = new PointF();
 
-        private Random random = new Random();       
+        private Random random = new Random();
         private byte x = 1;
         private byte time1 = 0;
-        private int time2 = 0;
 
         //Расчет Позиции
         public PointF Position(Bitmap bitmap)
@@ -19,8 +21,6 @@ namespace Aquarium
             if (time1 == 60)
                 time1 = 0;
 
-            if (time2 >= 180)
-                time2 = 0;
 
             if (target.X > position.X)
             {
@@ -46,9 +46,17 @@ namespace Aquarium
                 
             else
                 position.Y--;
+            bposition.X = position.X;
+            bposition.Y = position.Y;
             time1++;
-            time2 += random.Next(-10, 10);
-            time2++;
+
+            return position;
+        }
+
+        public PointF PositionBubble(Bitmap bitmap)
+        {
+            position.X = bposition.X + 100;
+            position.Y = bposition.Y + 500;
 
             return position;
         }
@@ -56,13 +64,12 @@ namespace Aquarium
         //Расчeт цели
         public PointF Target()
         {
-            if (position.X == target.X && position.Y == target.Y || time2 >= 160)
+            if (Math.Abs(position.X - target.X) < 2 && Math.Abs(position.Y - target.Y) < 2)
             {
                 target.X = random.Next(0, 1800);
                 target.Y = random.Next(0, 1080);
             }
-
-            return target;           
+            return target;
         }
     }
 }
