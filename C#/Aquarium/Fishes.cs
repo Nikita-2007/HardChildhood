@@ -16,6 +16,7 @@ namespace Aquarium
                 NewFish(new Fish1());
                 NewFish(new Fish2());
                 NewFish(new Fish3());
+                NewFish(new Babble());
             }
         }
 
@@ -38,10 +39,7 @@ namespace Aquarium
         public void DrawListFish(Graphics g)
         {
             foreach (dynamic fish in listfish)
-            {
-
-                fish.DrawFish(g);              
-            }
+                fish.DrawFish(g);
         }
     }
 }
