@@ -12,6 +12,7 @@ namespace Aquarium
             Target();
             Position(bitmap);
 
+
             g.DrawImage(bitmap, position.X, position.Y);
         }
     }
