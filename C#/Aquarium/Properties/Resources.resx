@@ -124,19 +124,13 @@
   <data name="2fish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2fish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="buble" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Weather" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Weather.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1FishZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1FishZ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_2FishZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2FishZ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_3fish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3fish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_3fishZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3fishZ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
