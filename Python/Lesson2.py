@@ -38,7 +38,8 @@ print(7//2)
 print(7%2)
 print("")
 
-print(5**2)
+print(5**3)
+print(25**0.5)
 print("")
 
 x = 10
@@ -58,8 +59,10 @@ x16 = 0x0a
 print(x2, x8, x16)
 print("")
 
-x = input("Как тебя зовут? \n")
-print("Очень приятно, " + str(x))
+x,y,z = 0
+x = y = z = 0
+x,y = y,x
+print(x, y, z)
 print("")
 
 input()
