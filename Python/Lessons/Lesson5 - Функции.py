@@ -1,71 +1,63 @@
-# Yrock 4
-import random
+# Yrock 5
 
-x = 0
-while x < 10:
-    x += 1
+# Функция Main
+def Main():
+    Hello()
+    Hello_name("Никита")
+    Hello_name_pluse("Test")
+    Hello_name_pluse()
+    Name_age("Никита1,", 13)
+    Name_age(13, "Никита2,")
+    Name_age(name = "Никита3,", age = 13)
+    Name_age(age = 13, name = "Никита4,")
+    Summ(1, 2, 3, 4, 5 ,6 ,7, 7+1, 10-1)
+    x = Summ_return(1, 2, 3, 4)
+    Name, Age = Summ_return_mnogo()
     print(x)
-print("")
+    print("")
+    print(Name, Age)
+    print(Summ_return_mnogo())
 
-Game_over = False
-while not Game_over:
-    x += 1
-    if x > 20:
-        Game_over = True
-    print(x)
-print("")
-    
-# Циклы for: стоп, старт-стоп, старт-стоп-шаг
-for i in range(5):
-    print(i)
-print("")
-    
-for i in range(10, 13):
-    print(i)
-print("")
-    
-for i in range(100, 200, 20):
-    print(i)
-print("")
-
-x = [-10, -5, 20, 100, 5000]
-print(x)
-print(type(x))
-for i in x:
-    print(i)
-print("")
-
-for i in "Hello Word":
-    print(i)
-print("")
-    
-# Цикл В Цикле
-
-for i in range(2, 11):
-    for j in range(2, 11):
-        print(i * j, end = " ")
+# Обычная Функция
+def Hello():
+    print("Hello Word")
     print("")
 
-# break / continue
+# Функция с параметром
+def Hello_name(x):
+    print("Hello,", x)
+    print("")
 
-x = [11, 22, 33, 44, 55, 66, 77, 88, 99]
-print(x)
-# Случайная сортировка массива
-random.shuffle(x)
-print(x)
-while True:
+# Функция с параметром по умолчанию
+def Hello_name_pluse(x = "пользователь"):
+    print("Hello,", x)
+    print("")
 
-    print("Рандом от 0 до 1 -", random.random())
-    print("Рандом от 100 до 200 -", random.randint(100, 200))
-    print("Рандом РЭИНДЖ до 10 -", random.randrange(10))
-    print("Рандом РЭИНДЖ от 1000 до 2000 -", random.randrange(1000, 2000))
-    print("Рандом РЭИНДЖ от 90 до 180 делить 3 -", random.randrange(90, 180, 3))
-    print("Рандом из списка -", random.choice(x))
-    y = input('Выйти - 0, продолжить - !0 - ')
-    if y == "0":
-        break
-    else:
-        continue
-print("")
+# Функция с именоваными параметрами
+def Name_age(name, age):
+    print("Имя:", name, "Возрост:", age)
+    print("")
+# Функция с множеством параметрами
+def Summ(*params):
+    S = 0
+    for i in params: 
+        S += i
+    print("Сумма:", S)
+    print("")
+
+# Функция с возратом
+def Summ_return(*params):
+    S = 0
+    for i in params:
+        S += i
+    return S
+
+# Функция с несколькими возратоми
+def Summ_return_mnogo():
+    name = "Вова Путин"
+    age = 67
+    return name, age
+
+Main()
 
 input()
