@@ -48,4 +48,7 @@ else:
     print("Число", x, "- больше 0")
 print("")
 
+print(all([1, 125, "x", "abc", True, 2 > 10]))
+print(any([0,12, "", "", False, 2 > 10]))
+
 input()
