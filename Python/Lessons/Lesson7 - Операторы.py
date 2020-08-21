@@ -34,5 +34,6 @@ print("bool любого числа", bool(-125))
 print("bool любого числа", bool(0))
 print("bool любого символа", bool("-125"))
 print("bool любого символа", bool(""))
+#help(str.split)
 
 input()
