@@ -1,0 +1,7 @@
+def Kirp(brick):
+    brick.split()
+    A1, A2, B1, B2 = brick
+    return A1, A2, B1, B2
+
+print(Kirp("1 3 2 2")) # 5
+input()
