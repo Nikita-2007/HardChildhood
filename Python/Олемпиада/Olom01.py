@@ -15,9 +15,6 @@ def Kirp(brick):
 print(Kirp("1 3 2 2")) # 5
 input()
 
-
-
-
 #A1, B1, A2, B2 = input().split()
 #if A1) < B1):
 #    if A2) < B2):
