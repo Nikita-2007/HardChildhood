@@ -1,12 +1,12 @@
 # Yrock 13
 
-#import module
+import module
 #import module as pm
 #from module import plus
 #from module import plus, minus
 from module import plus, minus as m
 
-#print("импорт данных", module.mmm)
+print("импорт данных", module.mmm)
 
 #module.plus(3, 2)
 
@@ -27,5 +27,6 @@ from random import randrange as r
 
 #print("рандомное число", randrange(10))
 print("рандомное число", r(10))
+
 
 input()
