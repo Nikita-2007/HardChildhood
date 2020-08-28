@@ -1,4 +1,4 @@
-def friend(x):
+﻿def friend(x):
     x2 = []
     for i in x:
         if len(i) == 4:
