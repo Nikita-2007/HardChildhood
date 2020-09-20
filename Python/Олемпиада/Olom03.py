@@ -1,38 +1,35 @@
 #Ввод
-N = input("Деапозон - ")
-M = int(input("Количество цифр - "))
-arr = input("Список - ")
+N = 10 #input("Деапозон - ")
+M = 7 #int(input("Количество цифр - "))
+arr = "9 3 6 4 3 2 9" #input("Спискa - ")
 
 #Решение
-maxN = 0
 sumN = 0
-
+arr = arr.split()
+setArr = set(arr)
+for i in setArr:
+    x = arr.count(i)
+    if x > sumN:
+        maxN = i
+        sumN = x
+    elif x == sumN and maxN > i:
+        maxN = i
+  
 #Вывод
-print(N, M, arr)
+print(maxN, sumN)
 input()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#g = 0
-#while g < M:
-#    l = input()
-#    arr.append(l)
-#    g += 1
-#for i in arr:
-#    if arr.count(i) != 1:
-#        print(i, arr.count(i))
-#        while 
-#        arr.remove(i)
+#N = input()
+#M = input()
+#arr = input()
+#sumN = 0
+#arr = arr.split()
+#setArr = set(arr)
+#for i in setArr:
+#    x = arr.count(i)
+#    if x > sumN:
+#        maxN = i
+#        sumN = x
+#    elif x == sumN and maxN > i:
+#        maxN = i
+#print(maxN, sumN)
