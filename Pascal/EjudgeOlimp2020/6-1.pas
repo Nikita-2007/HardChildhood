@@ -1,4 +1,5 @@
-﻿program prog01;
+﻿123
+3program prog01;
 
 var A1, B1, A2, B2, H:integer;
 
