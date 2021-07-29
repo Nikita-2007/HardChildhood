@@ -1,3 +1,6 @@
-class Zerg(object):
+from Units import Units
+
+
+class Zerg(Units):
     def __init__(self):
-        print('Я зерг')
+        super().__init__("img/z1.gif")

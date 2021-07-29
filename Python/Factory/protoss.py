@@ -1,3 +1,6 @@
-class Protoss(object):
+from Units import Units
+
+
+class Protoss(Units):
     def __init__(self):
-        print('Я протос')
+        super().__init__("img/p1.gif")

@@ -1,3 +1,6 @@
-class Terran(object):
+from Units import Units
+
+
+class Terran(Units):
     def __init__(self):
-        print('Я теран')
+        super().__init__("img/t1.gif")
