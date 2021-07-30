@@ -65,4 +65,7 @@ x,y = y,x
 print(x, y, z)
 print("")
 
+print(chr(97)) #a
+print(int(1010, 2)) #bin ---> int
+
 input()
