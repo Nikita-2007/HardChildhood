@@ -1,11 +1,17 @@
-M = int(input())
-N = 0
-i=0
-while True:
-    i += 1
-    N = N + len(str(i))
-    print(i, N)
-    if N == M:
-        N = i
+#ДОРЕШИВАНРИЕ
+N = int(input())
+M = 0
+L = 1
+R = 1
+
+while N > 0:
+    S = R*L*9
+    if N < S:
+        M += N//L
         break
-print(N)
+    else:
+        M += S//L
+        N -= S 
+        R *= 10
+        L += 1
+print(M)
