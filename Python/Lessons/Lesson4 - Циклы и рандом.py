@@ -69,4 +69,22 @@ while True:
         continue
 print("")
 
+arr = ["a", "b", "c", "d", "e"]
+for i, value in enumerate(arr):
+    print(i, value)
+
+iArr = iter(reversed(arr))
+print(next(iArr))
+print(next(iArr))
+print(next(iArr))
+print(next(iArr))
+
 input()
+
+
+
+
+
+
+
+

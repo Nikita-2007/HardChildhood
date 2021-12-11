@@ -16,7 +16,6 @@ def Main():
     print(x)
     print("")
     print(Name, Age)
-    print(Summ_return_mnogo())
 
 # Обычная Функция
 def Hello():
@@ -57,7 +56,21 @@ def Summ_return_mnogo():
     name = "Вова Путин"
     age = 67
     return name, age
-
+    
 Main()
 
+print()
+
+def Calc(x, y):
+    yield (x + y)
+    yield (x - y)
+    yield (x * y)
+    yield (x / y)
+    
+for i in Calc(2, 3):
+    print(i)
+
 input()
+
+
+

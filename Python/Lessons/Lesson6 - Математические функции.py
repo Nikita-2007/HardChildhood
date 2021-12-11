@@ -6,9 +6,10 @@ print("Число p", math.pi)
 print("Число експонентно", math.e)
 print("Возведение в степень", math.pow(2,3)) # 2**3
 print("Остаток от деление", math.fmod(7,3)) # 7%3
+print("Деление и остаток", divmod(10,3))
 print("Проверка на число", math.isfinite(x))
 print("Проверка на бесконечность", math.isinf(x))
-print("мантисса и експонентно", math.frexp(123.456))
+print("Мантисса и експонентно", math.frexp(123.456))
 print("Квадратный корень", math.sqrt(9))
 print("Модуль числа", math.fabs(-20))
 print("Модуль числа 1 со знаком числа 2", math.copysign(-10, 5))

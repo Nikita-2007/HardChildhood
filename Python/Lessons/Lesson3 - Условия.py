@@ -48,7 +48,13 @@ else:
     print("Число", x, "- больше 0")
 print("")
 
-print(all([1, 125, "x", "abc", True, 2 > 10]))
+print(all([1, 12, "x", "abc", True, 2 > 10]))
 print(any([0,12, "", "", False, 2 > 10]))
-
+print("Да") if x < 10 else print("Нет")
+if all([5 > 3, 1 > 0, 72 < 73, 23 == 23, ]):
+    print("Да")
+else:
+    print("Нет")
 input()
+
+
