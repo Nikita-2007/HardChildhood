@@ -3,6 +3,7 @@ os.setlocale('rus_rus.1251')
 
 print("Исходный текст: ")
 text = io.read()
+
 codeText = ''
 origChar = {}
 codeChar = {}
