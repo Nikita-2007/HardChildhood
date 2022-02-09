@@ -6,6 +6,7 @@ yoy0?vyoy0v¦vNeNyo`yyvNy#ev`ivo"N|ewy|8?@yoy0?vyoy0v`ivo"N|ewy|8vNevN¦eyGv¦e`ewy
 ]]
 
 abc(text)
+num(text)
 
 text = text: gsub('@', '\n')
 text = text: gsub('v', ' ')
@@ -31,7 +32,7 @@ text = text: gsub('k', 'ד')
 text = text: gsub('$', 'נ')
 text = text: gsub('P', 'ז')
 
-print("ֲסודמ סטלגמכמג: "..#text)
+
 print("״טפנ: \n"..text)
 
 io.read()
