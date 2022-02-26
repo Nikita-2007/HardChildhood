@@ -2,7 +2,7 @@ os.setlocale('rus_rus.1251')
 function abc(text)
 	origSim = {}
 	numSim = {}
-	print("РђР»С„РѕРІРёС‚: ")
+	print("Алфовит: ")
 	for i = 1, #text do
 		S = text: sub(i, i)
 		temp = 0
@@ -32,13 +32,25 @@ function abc(text)
 	end
 end
 
---РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ
+--Количество символов
 function num(text)
-	print("Р’СЃРµРіРѕ СЃРёРјРІРѕР»РѕРІ: "..#text)
+	print("Всего символов: "..#text)
 end	
 
---РџРѕРёСЃРє РїСЂРѕР±РµР»Р°
 
---РџРѕРёСЃРє СЃР»РѕРІ СЃ РїРѕРІС‚РѕСЂРѕРј Р±СѓРєРІ
+--Поиск пробела
+function spectrum()
+	maxi = 0
+	sim = ''
+	for i = 1, #numSim do
+		if numSim[i] > maxi then
+			maxi = numSim[i]
+			sim = origSim[i]
+		end
+	end
+	print('Пробел - '..sim)
+end
 
---РћРґРЅРѕР±СѓРєРІРµРЅС‹Рµ СЃР»РѕРІР°
+--Поиск слов с повтором букв
+
+--Однобуквеные слова
