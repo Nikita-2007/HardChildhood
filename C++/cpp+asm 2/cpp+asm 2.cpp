@@ -32,12 +32,14 @@ int main()
     }
     cout << res << endl;
     //Деление
-    //__asm
-    //{
-    //    mov eax, x
-    //    mov ebx, y
-    //    div ebx
-    //    mov res, eax
-    //}
-    //cout << res;
+    __asm
+    {
+        mov eax, x
+        mov edx, 0
+        mov ebx, y
+        div ebx
+        mov res, eax
+    }
+    cout << res;
+    system("pause>nul");
 }
