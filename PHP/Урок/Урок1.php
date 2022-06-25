@@ -6,9 +6,7 @@
 <? print("HelloWorld") ?>
 
 <?php
-/*
-Основы php
-*/
+/*Основы php*/
 echo '<br/>';
 $x = 2;
 echo $x, '<br/>'; //Выводит много значений
@@ -53,5 +51,6 @@ echo (int)123.456, '<br/>'; //Отиновывание
 (unset)
 
 Бинарный код:
-(binary)
-*/
+(binary)*/
+
+echo ('<script>console.log("from php with love")</script>');
