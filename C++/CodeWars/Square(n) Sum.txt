@@ -1,0 +1,7 @@
+#include <vector>
+int square_sum(const std::vector<int>& numbers)
+{
+    int ret=0;
+    for (auto x:numbers) ret+=(x*x);
+    return ret;
+}
