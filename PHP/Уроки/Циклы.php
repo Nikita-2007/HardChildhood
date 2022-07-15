@@ -40,10 +40,3 @@ echo '<br/>';
 $arr = ['a' => 10, 'b' => 20, 'c' => 30];
 foreach($arr as $key => $elem)
     echo $key, '-', $elem, ' ';
-
-
-/*
-
-, '<br/>';
-
-*/
