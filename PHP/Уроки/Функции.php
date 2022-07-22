@@ -34,4 +34,28 @@ $f = function($x) {
 $f("Анонимная функция <br/>");
 
 $x = fn() => 7+8;
-echo $x();
+echo $x(),'<br/>';
+
+#Гениратор yield
+echo '<br/>Гениратор yield<br/>';
+function func6() {
+    yield 1;
+    yield 2;
+    yield from [3, 4];
+    yield from new ArrayIterator([5, 6]);
+    yield from func7();
+    yield 9;
+    yield 10;
+}
+
+function func7() {
+    yield 7;
+    yield from func8();
+}
+function func8() {
+    yield 8;
+}
+#Вызов
+foreach(func6() as $x) {
+    echo $x, ' ';
+}
