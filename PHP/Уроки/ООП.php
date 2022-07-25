@@ -58,8 +58,23 @@ $hero = new Hero('Ranel', 55);
 echo $hero -> armor, '<br/>';
 #echo $hero -> pos; Нет доступа
 echo $hero -> getPos(), '<br/>';
-#Геттеры и сеттеры
+#Проерка на пернодлежность объекта к классу
+echo '$hero instanceof hero: ', $hero instanceof hero, '<br/>';
+echo '$hero instanceof Unit: ', $hero instanceof Unit, '<br/>';
+echo '$unit instanceof hero: ', $unit  instanceof hero, '<br/>';
 
+//Набр функций для заполенеие в класс
+trait Action{
+    public function talk() {
+        echo 'Я герой', '<br/>';
+    }
+}
+
+class SueprHero extends Unit {
+    use Action;
+}
+$superHero = new SueprHero('Barman', 1000);
+$superHero -> talk();
 /*
 
 , '<br/>';

@@ -37,9 +37,20 @@ echo "GET запрос с полем для ввода";
 Введите ваше имя:
 <input type='text' name="y">
 <input type="submit" name="x" value="Привет"/>
-</form><br/><br/><?php
+</form><br/><br/>
+<h3>POST-запрос</h3>
+<form method="POST">
+    <p>Имя: <input type="text" name="name"/></p>
+    <p>Возраст: <input type="number" name="age"/></p>
+    <input type="submit" value="Отправить"/>
+</form>
+<?php
 
 //Вывод даннных
+echo "<h5>Данные в массиве _POST</h5>";
+var_export($_POST);
+echo '<br/>';
+
 echo "<h5>Данные в массиве _GET</h5>";
 var_export($_GET);
 echo '<br/>';
@@ -47,9 +58,3 @@ echo '<br/>';
 echo "<h5>Все данные в GLOBALS</h5>";
 var_export($GLOBALS);
 echo '<br/>';
-
-/*
-
-, '<br/>';
-
-*/
