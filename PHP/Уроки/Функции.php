@@ -7,13 +7,16 @@ function func1() {
 func1();
 
 function func2($x) {
+    global $z;
+    $z = 123;
     echo $x, '<br/>';
 }
 func2("Всем привет");
+echo $z;
 
 function func3($x) {
     return $x*2;
-    echo 'Не раотает после return';
+    echo 'Не работает после return';
 }
 echo func3(5), '<br/>';
 
@@ -65,3 +68,4 @@ function func8() {
 foreach(func6() as $x) {
     echo $x, ' ';
 }
+

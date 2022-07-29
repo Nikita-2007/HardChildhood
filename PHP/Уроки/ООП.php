@@ -1,7 +1,8 @@
 <?php
 //ООП
-namespace levens;
+namespace lesens;
 define('SIZE', 1920); #Константа
+const TEST = 'Константа';
 
 class Unit {
     const PI = 3.141592653589793;
@@ -75,8 +76,21 @@ class SueprHero extends Unit {
 }
 $superHero = new SueprHero('Barman', 1000);
 $superHero -> talk();
-/*
 
-, '<br/>';
+interface idrive {
+    function update();
+};
 
-*/
+abstract class Item{
+    function update() {
+        echo 'Обнавление'; #Не имеет объектов для наследствия
+    }
+}
+#$item = new Item(); - error
+
+#Запечатанный класс(Без наследования)
+final class Calc {
+    public final function delata() {
+        echo 'Запечатанный метод'; #Запечатанная функция
+    }
+}
