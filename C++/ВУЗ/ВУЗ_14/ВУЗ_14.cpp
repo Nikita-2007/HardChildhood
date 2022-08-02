@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "rus");
-    int n, s = 1;
+    int n, s = 1, r = 1;
     cout << "Введите число:" << endl;
     cin >> n;
     if (n < 0 || n > 1e15) {
@@ -14,8 +14,10 @@ int main()
         return 0;
     }
     for (int i = 1; i < n; i++) {
-        if (n >= i * i)
+        if (n >= r * 2) {
+            r *= 2;
             s++;
+        }
         else
             break;
     }
