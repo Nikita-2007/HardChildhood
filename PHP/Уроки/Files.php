@@ -48,3 +48,67 @@ $file = fopen('test.txt', 'w') or die('Не удолось открыть фай
 fwrite($file, "Тестовая запись \r\n");#Запись файл
 fwrite($file, "Ещё одна запись" . PHP_EOL);
 fclose($file);
+
+#Чтение файла
+$file = fopen('test.txt', 'r') or die('Не удолось открыть файл');
+while (!feof($file)) {
+    $str = htmlentities(fgets($file));
+    echo $str, '<br/>';
+}
+fclose($file);
+echo '<br/>';
+
+//Чтение файла полностью
+$str = htmlentities(file_get_contents('test.txt'));
+echo 'Файл целиком:', '<br/>';
+echo $str, '<br/>';
+
+//Создание папки
+if (mkdir('NewFolder'))
+    echo 'Каталог создан', '<br/>';
+else
+    echo 'Возникла ошибка', '<br/>';
+
+//Где я?..
+$path = getcwd();
+echo $path, '<br/>';
+
+//Копирвоание файла
+if (copy('test.txt', 'test2.txt'))
+    echo 'Файл скопирован', '<br/>';
+else
+    echo 'Возникла ошибка', '<br/>';
+
+//Перенос файла
+if (rename('test2.txt', 'NewFolder/test3.txt'))
+echo 'Файл перемещён', '<br/>';
+else
+echo 'Возникла ошибка', '<br/>';
+
+//Удаление файла
+if (unlink('NewFolder/test3.txt'))
+    echo 'Файл Удалён', '<br/>';
+else
+    echo 'Возникла ошибка', '<br/>';
+
+//Удаление папки
+if (rmdir('NewFolder'))
+    echo 'Каталог удалён', '<br/>';
+else
+    echo 'Возникла ошибка', '<br/>';
+
+//Открытие, чтение, и вывод содержимого папок
+$dir = getcwd();
+if (is_dir($dir))
+    if ($temp = opendir($dir)) { //Открываем каталог
+        while(($file = readdir($temp)) !== false) { //Считываем по одному
+            if ($file == '.' || $file == '..') //Пропуск точек
+                continue;
+            if (is_dir($file))
+                echo "Каталог: $file", '<br/>';
+            else
+                echo "Файл: $file", '<br/>';
+        }
+        closedir();
+    }
+    

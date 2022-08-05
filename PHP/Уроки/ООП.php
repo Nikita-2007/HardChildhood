@@ -41,6 +41,10 @@ class Hero extends Unit {
         $this -> armor = 286;
     }
 
+    function __destruct() {
+        echo 'Объекст уничтожен', '<br/>';
+    }
+
     public function getPos() {
         echo parent::PI, '<br/>';; #self Тоже работает
         return $this -> pos;
