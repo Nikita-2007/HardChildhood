@@ -19,6 +19,25 @@ if (isset($_POST["php_count"]))
 </form>
 <br><hr><br>
 
+<!--Рандом с сервера-->
+<?php
+$random = '-1';
+$arr = [];
+for($i = 0; $i < 37; $i++) {
+    $arr[] = 0;
+}
+if (isset($_POST["php_random"]))
+    $random = rand(0, 36);
+    $arr[$random] += 1;
+    echo var_export($arr);
+?>
+
+<form method="post">
+    <input type="submit" class="button" name="php_random" value='<?='Рандом PHP: '.$random ?>' >
+</form>
+
+<br><hr><br>
+
 <?php
 var_export($GLOBALS);
 require_once "footer.php";
