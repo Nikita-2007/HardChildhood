@@ -54,7 +54,8 @@ x = [i * 3 for i in "Hello"]
 print("Генератор списка циклом -", x)
 x = [i * 4 for i in "Hello" if i != "l"]
 print("Генератор списка циклом с условием -", x)
-
+x = [i for i in range(100) if i % 7 == 0]
+print(x)
 arrName = ["Максим", "Никита", "Матвей"]
 arrAge = [16, 14, 12, 1]
 arrDr = [9, 2, 25]
@@ -67,7 +68,6 @@ for name, age, dr in zip(arrName, arrAge, arrDr):
 a, b, c = zip(*arr)
 print(a, b, c)
 input()
-
 
 
 
