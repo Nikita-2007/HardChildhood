@@ -3,5 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello World!")
+	var age int8 = 23
+	fmt.Println(age)
 }
