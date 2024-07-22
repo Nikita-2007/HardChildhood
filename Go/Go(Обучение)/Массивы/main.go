@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	var arr [3]string
@@ -25,4 +28,11 @@ func main() {
 	arr2d := [3][4]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}}
 	fmt.Println(arr2d)
 	fmt.Println(arr2d[1][2])
+
+	dinamicarr := []int{3, 2, 4, 1, 6, 7, 3, 9}
+	dinamicarr = append(dinamicarr, 0)
+	dinamicarr[0] = 11
+	sort.Ints(dinamicarr)
+	fmt.Println(dinamicarr)
+
 }
