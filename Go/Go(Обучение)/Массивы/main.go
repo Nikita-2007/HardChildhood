@@ -35,4 +35,8 @@ func main() {
 	sort.Ints(dinamicarr)
 	fmt.Println(dinamicarr)
 
+	for i, el := range dinamicarr {
+		fmt.Println(i, el)
+	}
+
 }
