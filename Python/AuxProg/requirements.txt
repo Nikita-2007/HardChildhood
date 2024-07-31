@@ -1,6 +1,6 @@
 altgraph==0.17
 autogui==0.1.8
-future==0.18.2
+future==0.18.3
 keyboard==0.13.5
 mouse==0.7.1
 MouseInfo==0.1.3
