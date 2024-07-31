@@ -1,0 +1,25 @@
+py -V проверка версии питон
+
+improt sys
+print(sys.version) проверка версии питон с кода
+
+python.exe -m pip install --upgrade pip обновление pip
+
+python -m venv venv создать виртуальное пространсвоз
+./venv/Scripts/activate акстивация вертуальной среды (должно появится зеленый venv в скобках)
+deactivate - отключение вертуальной среды
+pip list список подключенных модулей
+
+Get-ExecutionPolicy проверка доступа к скриптам
+Set-ExecutionPolicy AllSigned (или RemoteSigned) разрешает работу скриптов
+
+pip install Flask устоновка Flask
+
+py -m pip freeze список подключенных модулей
+pip freeze > requirements.txt сохранение модулей в списках
+pip freeze -r requirements.txt загрузить модули
+
+создать файл gitignore.txt для Flask python и vscode
+создать файл app.py
+
+python app.py старт сервера из терминала
