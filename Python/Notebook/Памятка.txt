@@ -23,3 +23,6 @@ pip freeze -r requirements.txt загрузить модули
 создать файл app.py
 
 python app.py старт сервера из терминала
+
+templates папка для шаблонов
+static папка для css, js и тд.
