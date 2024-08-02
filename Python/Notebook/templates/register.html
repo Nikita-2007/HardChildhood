@@ -1,0 +1,22 @@
+{%extends 'base/main.html'%}
+
+{%block title%}
+    {{data.title}}
+{%endblock%}
+
+{%block content%}
+    {{data.content}}
+    <div class="entry">
+        <h4>Логин: </h4>
+        <input type="text">
+        <h4>Почта: </h4>
+        <input type="text">
+        <h4>Пароль: </h4>
+        <input type="password">
+        <h4>Повторите пароль: </h4>
+        <input type="password">
+        <p><button>Зарегестрироваться</button></p>
+        Уже зарегестрировались?
+        <a href="{{url_for('login')}}">Войти</a>
+    </div>
+{%endblock%}

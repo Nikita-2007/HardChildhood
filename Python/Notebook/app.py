@@ -7,17 +7,31 @@ app = Flask(__name__)
 def index():
     data = {
         'title':'Главная страница',
-        'content':'Тест индекс'
+        'content':'Записная книжка'
     }
     return render_template("index.html", data=data)
 
-@app.route('/about')
-def about():
+@app.route('/login')
+def login():
     data = {
-        'title':'О проекте',
-        'content':'Тест описания'
+        'title':'Вход',
     }
-    return render_template("about.html", data=data)
+    return render_template("login.html", data=data)
+
+@app.route('/register')
+def register():
+    data = {
+        'title':'Регестрация',
+    }
+    return render_template("register.html", data=data)
+
+@app.route('/profile')
+def profile():
+    data = {
+        'title':'Профиль',
+        'content':'Ваш профиль'
+    }
+    return render_template("profile.html", data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

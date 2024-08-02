@@ -1,31 +1,36 @@
+@import url("colors.css");
+
 body {
-    background: lightblue;
+    background: var(--b1);
     width: 100%;
 }
 
 header {
-    border: solid 4px green;
     width: 100%;
+    text-align: center;
 }
 
 footer {
-    border: solid 4px blue;
     width: 100%;
 }
 
 aside {
-    border: solid 4px purple;
     width: 20%;
 }
 
 .conteiner {
     display: flex;
-    border: solid 4px red;
     margin: auto;
     width: 80%;
 }
 
 .content {
-    border: solid 4px yellow;
     width: 80%;
+}
+
+.entry {
+    display:block;
+    text-align: center;
+    margin-top: 10vh;
+    line-height: 0.1vh;
 }
