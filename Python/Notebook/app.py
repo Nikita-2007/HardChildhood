@@ -1,6 +1,16 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True) #id
+    name = db.Column(db.String(255), nullable=False) #Имя
+    discription = db.Column(db.Text, default='Not found') #Описание
+    date = db.Column(db.Date, default=datetime.utcnow) #времення метка
 
 @app.route('/')
 @app.route('/index')
@@ -32,6 +42,11 @@ def profile():
         'content':'Ваш профиль'
     }
     return render_template("profile.html", data=data)
+
+@app.route('/users')
+def users():
+    users = User.query.all()
+    return render_template("users.html", data=users)
 
 if __name__ == '__main__':
     app.run(debug=True)
