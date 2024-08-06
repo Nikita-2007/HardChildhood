@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -8,8 +8,9 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True) #id
-    name = db.Column(db.String(255), nullable=False) #Имя
-    discription = db.Column(db.Text, default='Not found') #Описание
+    login = db.Column(db.String(255), nullable=False) #Имя
+    mail = db.Column(db.String(255), nullable=False) #Имя
+    password = db.Column(db.String(255), nullable=False) #Имя
     date = db.Column(db.Date, default=datetime.utcnow) #времення метка
 
 @app.route('/')
@@ -28,12 +29,25 @@ def login():
     }
     return render_template("login.html", data=data)
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    data = {
+    if request.method == 'POST':
+        login = request.form['login']
+        mail = request.form['mail']
+        password = request.form['password']
+        user = User(login=login, mail=mail, password=password)
+        try:
+            db.session.add(user)
+            db.session.commit()
+            return redirect('/users')
+        except:
+            return 'Ошибка соеденения с базой данных'
+    else:
+        data = {
         'title':'Регестрация',
-    }
-    return render_template("register.html", data=data)
+        'content': ''
+        }
+        return render_template("register.html", data=data)
 
 @app.route('/profile')
 def profile():
@@ -45,8 +59,13 @@ def profile():
 
 @app.route('/users')
 def users():
-    users = User.query.all()
-    return render_template("users.html", data=users)
+    data = {
+        'title': 'Пользователи',
+        'users': User.query.all()
+    }
+    return render_template("users.html", data=data)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

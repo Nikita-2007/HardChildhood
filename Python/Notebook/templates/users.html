@@ -1,17 +1,17 @@
 {%extends 'base/main.html'%}
 
 {%block title%}
-    Пользователи
+    {{data.title}}
 {%endblock%}
 
 {%block content%}
     <h1>Пользователи</h1>
-    {%if data%}
-        {%for i in data%}
-            <p>{{i.id}}</p>
-            <p>{{i.name}}</p>
-            <p>{{i.discription}}</p>
-            <p>{{i.date}}</p>
+    {%if data.users%}
+        {%for i in data.users%}
+            {{i.id}}
+            {{i.login}}
+            {{i.date}}
+            <br>
         {%endfor%}
     {%else%}
     <p>Данные отсуствуют</p>

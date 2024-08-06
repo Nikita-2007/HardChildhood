@@ -5,18 +5,24 @@
 {%endblock%}
 
 {%block content%}
-    {{data.content}}
     <div class="entry">
-        <h4>Логин: </h4>
-        <input type="text">
-        <h4>Почта: </h4>
-        <input type="text">
-        <h4>Пароль: </h4>
-        <input type="password">
-        <h4>Повторите пароль: </h4>
-        <input type="password">
-        <p><button>Зарегестрироваться</button></p>
+        <h1>Регестрация</h1>
+        <br>
+        <form method="post">
+            <h4>Логин: </h4>
+            <input type="text" name="login" placeholder="Login">
+            <h4>Почта: </h4>
+            <input type="text" name="mail" placeholder="Mail">
+            <h4>Пароль: </h4>
+            <input type="password" name="password" placeholder="Password">
+            <!-- Добавить проверку повторения
+            <h4>Повторите пароль: </h4>
+            <input type="password" name="password_repeat" placeholder="Password">
+            -->
+            <p><button type="submit">Зарегестрироваться</button></p>
+        </form>
         Уже зарегестрировались?
         <a href="{{url_for('login')}}">Войти</a>
     </div>
+
 {%endblock%}
