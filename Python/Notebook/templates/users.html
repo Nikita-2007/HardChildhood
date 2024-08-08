@@ -8,9 +8,8 @@
     <h1>Пользователи</h1>
     {%if data.users%}
         {%for i in data.users%}
-            {{i.id}}
             {{i.login}}
-            {{i.date}}
+            <a href="/user/{{i.id}}">Подробнее</a>
             <br>
         {%endfor%}
     {%else%}

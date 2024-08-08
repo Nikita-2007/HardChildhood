@@ -56,3 +56,11 @@ class User(db.Model):
     {%else%}
     <p>Данные отсуствуют</p>
     {%endif%}
+
+User.query.get(id) Получить конкректную строчку с таблицы бд по id
+
+пример ссылки с разными url(динамическая сслыка)
+@app.route('/user/<int:id>')  
+def user(id):
+
+<a href="/user/{{i.id}}">Сслыка</a> Переход на динамеческую ссылку(в html)

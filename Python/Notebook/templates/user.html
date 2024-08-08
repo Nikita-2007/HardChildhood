@@ -1,0 +1,13 @@
+{%extends 'base/main.html'%}
+
+{%block title%}
+    {{data.title}}
+{%endblock%}
+
+{%block content%}
+    <h1>Профиль пользователя</h1>
+    <h4>Кодовый номер {{data.user.id}}</h4>
+    <h4>Имя в системе {{data.user.login}}</h4>
+    <h4>Дата регестрации {{data.user.date}}</h4>
+    <h4>Почта {{data.user.mail}}</h4>
+{%endblock%}

@@ -49,14 +49,6 @@ def register():
         }
         return render_template("register.html", data=data)
 
-@app.route('/profile')
-def profile():
-    data = {
-        'title':'Профиль',
-        'content':'Ваш профиль'
-    }
-    return render_template("profile.html", data=data)
-
 @app.route('/users')
 def users():
     data = {
@@ -65,7 +57,13 @@ def users():
     }
     return render_template("users.html", data=data)
 
-
+@app.route('/user/<int:id>')
+def user(id):
+    data = {
+        'title': 'Профиль',
+        'user': User.query.get(id),
+    }
+    return render_template("user.html", data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)
