@@ -1,0 +1,26 @@
+{%extends 'base/main.html'%}
+
+{%block title%}
+    {{data.title}}
+{%endblock%}
+
+{%block content%}
+<div class="entry">
+    <h1>Редактировать профиль</h1>
+    <br>
+    <form method="post">
+        <h4>Логин: </h4>
+        <input type="text" name="login" value="{{data.user.login}}" placeholder="Login">
+        <h4>Почта: </h4>
+        <input type="email" name="mail" value="{{data.user.mail}}" placeholder="Mail">
+        <h4>Пароль: </h4>
+        <input type="password" name="password" value="{{data.user.password}}" placeholder="Password">
+        <!-- Добавить проверку повторения
+        <h4>Повторите пароль: </h4>
+        <input type="password" name="password_repeat" placeholder="Password">
+        -->
+        <p><button type="submit">Сохранить изменения</button></p>
+    </form>
+</div>
+
+{%endblock%}
