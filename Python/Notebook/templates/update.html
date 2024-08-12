@@ -15,6 +15,20 @@
         <input type="email" name="mail" value="{{data.user.mail}}" placeholder="Mail">
         <h4>Пароль: </h4>
         <input type="password" name="password" value="{{data.user.password}}" placeholder="Password">
+        <h4>Город: </h4>
+        <select name="city_id">
+            {%if data.city_id%}
+                {%for i in data.city_id%}
+                    {%if i.id == data.user.city_id%}
+                        <option selected value="{{i.id}}">{{i.name}}</option>
+                    {%else%}
+                        <option value="{{i.id}}">{{i.name}}</option>
+                    {%endif%}
+                {%endfor%}
+            {%else%}
+                <option value="0">Нет данных</option>
+            {%endif%}
+        </select>
         <!-- Добавить проверку повторения
         <h4>Повторите пароль: </h4>
         <input type="password" name="password_repeat" placeholder="Password">
