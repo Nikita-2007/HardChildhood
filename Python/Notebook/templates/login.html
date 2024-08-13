@@ -6,14 +6,17 @@
 
 {%block content%}
     {{data.content}}
-    
-    <div class="entry">
-        <h4>Логин: </h4>
-        <input type="text">
-        <h4>Пароль: </h4>
-        <input type="password">
-        <p><button>Войти</button></p>
-        Нет аккаунта?
-        <a href="{{url_for('register')}}">Зарегестрируйтесь</a>
+    <div class="entry"></div>
+        <h1>Регистрация</h1>
+        <br>
+        <form method="POST">
+            <h4>Логин: </h4>
+            <input type="text">
+            <h4>Пароль: </h4>
+            <input type="password">
+            <p><button type="submit">Войти</button></p>
+            Нет аккаунта?
+            <a href="{{url_for('register')}}">Зарегестрируйтесь</a>
+        </form>
     </div>
 {%endblock%}

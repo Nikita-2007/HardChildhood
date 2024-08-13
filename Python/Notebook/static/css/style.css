@@ -34,3 +34,13 @@ aside {
     margin-top: 10vh;
     line-height: 0.1vh;
 }
+
+.book {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}

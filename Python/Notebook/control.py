@@ -2,20 +2,29 @@ from flask import render_template, request, redirect
 from app import app, db
 from model.user import User
 from model.city import City
+#from flask_login import LoginManager
 
 @app.route('/')
 @app.route('/index')
 def index():
     data = {
         'title':'Главная страница',
-        'content':'Записная книжка'
     }
     return render_template("index.html", data=data)
 
 @app.route('/login')
 def login():
-    data = {
-        'title':'Вход',
+    #login_manager = LoginManager(app)
+    if request.method == 'POST':
+        login = request.form['login']
+        password = request.form['password']
+        try:
+            return redirect('/user/'+str(user.id))
+        except:
+            return 'Ошибка соеденения с базой данных'
+    else:
+        data = {
+            'title':'Войти',
     }
     return render_template("login.html", data=data)
 
