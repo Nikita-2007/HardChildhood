@@ -5,18 +5,17 @@
 {%endblock%}
 
 {%block content%}
-    {{data.content}}
-    <div class="entry"></div>
-        <h1>Регистрация</h1>
+    <div class="entry">
+        <h1>Войти</h1>
         <br>
-        <form method="POST">
+        <form method="post">
             <h4>Логин: </h4>
-            <input type="text">
+            <input type="text" placeholder="Login">
             <h4>Пароль: </h4>
-            <input type="password">
+            <input type="password" placeholder="Password">
             <p><button type="submit">Войти</button></p>
-            Нет аккаунта?
-            <a href="{{url_for('register')}}">Зарегестрируйтесь</a>
         </form>
+        Нет аккаунта?
+        <a href="{{url_for('register')}}">Зарегестрируйтесь</a>
     </div>
 {%endblock%}

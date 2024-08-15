@@ -3,6 +3,7 @@
 body {
     background: var(--b1);
     width: 100%;
+    height: 100%;
 }
 
 header {
@@ -12,6 +13,12 @@ header {
 
 footer {
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 5%;
+    background-color: var(--b2);
+    display: flex;
+    justify-content: center;
 }
 
 aside {
@@ -33,14 +40,4 @@ aside {
     text-align: center;
     margin-top: 10vh;
     line-height: 0.1vh;
-}
-
-.book {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    padding: 10px;
-    line-height: 1.5;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999;
 }

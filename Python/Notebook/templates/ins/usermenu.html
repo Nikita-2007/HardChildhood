@@ -3,9 +3,9 @@
         <a href="{{url_for('register')}}">Добавить запись</a>
     </div>
     <div>
-        <a href="/user/{{data.user.id}}/update">Обновить запись</a>
+        <a href="{{url_for('user_update', id=data.user.id)}}">Обновить запись</a>
     </div>
     <div>
-        <a href="/user/{{data.user.id}}/delete">Удалить запись</a>
+        <a href="{{url_for('user_delete', id=data.user.id)}}">Удалить запись</a>
     </div>
 </div>
